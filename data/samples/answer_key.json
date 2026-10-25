@@ -1,0 +1,136 @@
+[
+  {
+    "id": "doc01",
+    "file": "01_clean_agreement.txt",
+    "issues": [],
+    "should_not_flag": [
+      "60-day notice period",
+      "confidentiality clause",
+      "final settlement within two working days"
+    ],
+    "purpose": "negative control: a good agent reports no legal conflicts"
+  },
+  {
+    "id": "doc02",
+    "file": "02_noncompete_bond.docx",
+    "issues": [
+      {
+        "clause": 3,
+        "topic": "post-employment non-compete",
+        "expected_act": "Indian Contract Act, 1872",
+        "expected_section": "27",
+        "confidence": "high"
+      },
+      {
+        "clause": 2,
+        "topic": "training bond / liquidated damages",
+        "expected_act": "Indian Contract Act, 1872",
+        "expected_section": "74",
+        "confidence": "medium"
+      }
+    ],
+    "should_not_flag": [
+      "90-day notice period (no fixed statutory maximum for most IT roles; depends on contract)",
+      "IP assignment"
+    ],
+    "purpose": "tests query rewriting (non-compete -> restraint of trade) and bond handling"
+  },
+  {
+    "id": "doc03",
+    "file": "03_slow_settlement.pdf",
+    "issues": [
+      {
+        "clause": 2,
+        "topic": "final settlement timing",
+        "expected_act": "Code on Wages, 2019",
+        "expected_section": "17",
+        "confidence": "medium"
+      },
+      {
+        "clause": 3,
+        "topic": "unlimited deductions from wages",
+        "expected_act": "Code on Wages, 2019",
+        "expected_section": "18",
+        "confidence": "medium"
+      }
+    ],
+    "should_not_flag": [
+      "60-day notice period"
+    ],
+    "purpose": "the key finding: 60 days vs the two-working-days rule; also deductions"
+  },
+  {
+    "id": "doc04",
+    "file": "04_fixed_term_gratuity.docx",
+    "issues": [
+      {
+        "clause": 2,
+        "topic": "gratuity for fixed-term employees",
+        "expected_act": "Code on Social Security Act, 2020",
+        "expected_section": "53",
+        "confidence": "medium"
+      },
+      {
+        "clause": 3,
+        "topic": "provident fund coverage",
+        "expected_act": "Code on Social Security Act, 2020",
+        "expected_section": "verify",
+        "confidence": "low"
+      }
+    ],
+    "should_not_flag": [
+      "automatic end of fixed term"
+    ],
+    "purpose": "tests exception handling: the retrieved text carries conditions, answer must not say a flat 'no'"
+  },
+  {
+    "id": "doc05",
+    "file": "05_leave_policy.txt",
+    "issues": [
+      {
+        "clause": 2,
+        "topic": "maternity leave duration",
+        "expected_act": "Code on Social Security Act, 2020",
+        "expected_section": "verify (Chapter VI Maternity Benefit)",
+        "confidence": "medium"
+      }
+    ],
+    "should_not_flag": [
+      "casual leave",
+      "sick leave"
+    ],
+    "purpose": "duration check against the Code on Social Security maternity chapter"
+  },
+  {
+    "id": "doc06",
+    "file": "06_posh_policy.pdf",
+    "issues": [
+      {
+        "clause": 3,
+        "topic": "Internal Committee requirement",
+        "expected_act": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+        "expected_section": "4",
+        "confidence": "high"
+      },
+      {
+        "clause": 2,
+        "topic": "time limit for complaints",
+        "expected_act": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+        "expected_section": "9",
+        "confidence": "medium"
+      }
+    ],
+    "should_not_flag": [
+      "zero tolerance statement"
+    ],
+    "purpose": "tests POSH retrieval for a clean, well-defined law"
+  },
+  {
+    "id": "doc07",
+    "file": "07_termination_letter.txt",
+    "issues": [],
+    "should_not_flag": [],
+    "expected_behavior": "hedge: whether the employee is a 'worker', what the contract says, and state rules all matter. A confident verdict is a failure; suggesting a labour lawyer is correct.",
+    "purpose": "tests refusal / uncertainty handling"
+  }
+]

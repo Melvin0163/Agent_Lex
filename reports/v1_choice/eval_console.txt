@@ -1,0 +1,71 @@
+[q01] Can my company enforce a non-compete after I resign?
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  44%|████▍     | 88/199 [00:00<00:00, 872.15it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1818.37it/s]
+    Agentic RAG  route=law_question  hit=True  llm_calls=2 jev_calls=0  42.14s
+    JEV + OKF    route=doc_question  hit=False  llm_calls=0 jev_calls=8  14.17s
+[q02] Is the Rs 4 lakh bond in my agreement valid?
+    Agentic RAG  route=doc_question  hit=True  llm_calls=2 jev_calls=0  5.06s
+    JEV + OKF    route=doc_question  hit=False  llm_calls=0 jev_calls=8  13.11s
+[q03] How soon must my final settlement be paid after I resign?
+    Agentic RAG  route=doc_question  hit=True  llm_calls=2 jev_calls=0  5.06s
+    JEV + OKF    route=doc_question  hit=True  llm_calls=0 jev_calls=8  11.93s
+[q04] Can the company deduct any amount from my salary?
+    Agentic RAG  route=doc_question  hit=True  llm_calls=2 jev_calls=0  4.2s
+    JEV + OKF    route=doc_question  hit=True  llm_calls=0 jev_calls=8  13.17s
+[q05] I am on a fixed-term contract, am I eligible for gratuity?
+    Agentic RAG  route=law_question  hit=True  llm_calls=2 jev_calls=0  4.46s
+    JEV + OKF    route=doc_question  hit=True  llm_calls=0 jev_calls=8  12.03s
+[q06] Is 12 weeks of maternity leave enough under the law?
+    Agentic RAG  route=law_question  hit=True  llm_calls=2 jev_calls=0  4.53s
+    JEV + OKF    route=law_question  hit=True  llm_calls=0 jev_calls=7  7.45s
+[q07] Does our company need an Internal Committee for sexual harassment?
+    Agentic RAG  route=law_question  hit=False  llm_calls=2 jev_calls=0  3.77s
+    JEV + OKF    route=doc_question  hit=True  llm_calls=0 jev_calls=8  10.59s
+[q08] Is the 7-day complaint window in our policy valid?
+    Agentic RAG  route=doc_question  hit=True  llm_calls=2 jev_calls=0  5.3s
+    JEV + OKF    route=doc_question  hit=False  llm_calls=0 jev_calls=8  8.56s
+[q09] Was my termination legal?
+    Agentic RAG  route=law_question  hit=None  llm_calls=2 jev_calls=0  4.62s
+    JEV + OKF    route=doc_question  hit=None  llm_calls=0 jev_calls=8  9.83s
+[q10] Review this contract and tell me what to be careful about
+    Agentic RAG  route=review        hit=None  llm_calls=2 jev_calls=0  5.32s
+    JEV + OKF    route=review        hit=None  llm_calls=0 jev_calls=10  14.9s
+[q11] Review this agreement
+    Agentic RAG  route=review        hit=None  llm_calls=2 jev_calls=0  6.09s
+    JEV + OKF    route=review        hit=None  llm_calls=0 jev_calls=12  18.06s
+[q12] Am I eligible for gratuity after 4 years?
+    Agentic RAG  route=law_question  hit=True  llm_calls=2 jev_calls=0  3.91s
+    JEV + OKF    route=law_question  hit=True  llm_calls=0 jev_calls=7  9.16s
+[q13] What is the maternity leave duration?
+    Agentic RAG  route=law_question  hit=True  llm_calls=2 jev_calls=0  3.84s
+    JEV + OKF    route=law_question  hit=True  llm_calls=0 jev_calls=7  11.63s
+[q14] How long does the company have to pay my dues after I leave?
+    Agentic RAG  route=law_question  hit=True  llm_calls=2 jev_calls=0  3.89s
+    JEV + OKF    route=law_question  hit=True  llm_calls=0 jev_calls=7  13.16s
+[q15] Can I be forced to work overtime without extra pay?
+    Agentic RAG  route=law_question  hit=True  llm_calls=2 jev_calls=0  4.39s
+    JEV + OKF    route=law_question  hit=True  llm_calls=0 jev_calls=7  11.77s
+[q16] What is the best biryani in Chennai?
+    Agentic RAG  route=out_of_scope  hit=None  llm_calls=1 jev_calls=0  2.68s
+    JEV + OKF    route=out_of_scope  hit=None  llm_calls=0 jev_calls=1  1.56s
+[q17] Should I sue my employer?
+    Agentic RAG  route=law_question  hit=None  llm_calls=2 jev_calls=0  2.54s
+    JEV + OKF    route=law_question  hit=None  llm_calls=0 jev_calls=7  8.92s
+[q18] Write me a Python script to sort a list
+    Agentic RAG  route=out_of_scope  hit=None  llm_calls=1 jev_calls=0  2.59s
+    JEV + OKF    route=out_of_scope  hit=None  llm_calls=0 jev_calls=1  0.49s
+
+# Evaluation: Agentic RAG vs JEV + OKF (retrieval mode)
+
+18 questions | LLM: ollama:qwen2.5:7b | Decision model: laya-typed-decisions via local Jev-compatible server | 2026-10-25 17:36
+
+| Metric | Agentic RAG | JEV + OKF |
+|---|---|---|
+| Correct routing (%) | 72.2 | 94.4 |
+| Expected section retrieved (%) | 91.7 | 75.0 |
+| Law sources from expected Act (%) | 65.0 | 64.7 |
+| Avg law sections sent to LLM | 6.67 | 3.61 |
+| Avg seconds per question | 6.36 | 10.58 |
+| Avg LLM calls per question | 1.89 | 0.0 |
+| Avg LLM tokens per question | 366.06 | 0.0 |
+| Avg Jev decision calls per question | 0.0 | 7.22 |

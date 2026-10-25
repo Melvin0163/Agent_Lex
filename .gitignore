@@ -1,0 +1,20 @@
+# environment and secrets
+.venv/
+.env
+__pycache__/
+*.pyc
+*.bak
+
+
+# runtime files
+data/uploads/
+knowledge/documents/
+logs/
+
+# third-party documents (not redistributed)
+data/real/
+data/reference/
+
+# results that quote the real third-party documents (kept locally, not published)
+reports/eval_real_full*
+reports/grading_sheet.csv

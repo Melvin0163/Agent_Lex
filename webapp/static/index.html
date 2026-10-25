@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LexAgent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/app.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E6655'/%3E%3Cpath d='M10 8v16h12' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="/" aria-label="LexAgent home">
+    <span class="mark" aria-hidden="true">L</span>
+    <span class="brand-name">LexAgent</span>
+    <span class="brand-scope">Indian employment law</span>
+  </a>
+  <button class="icon-btn" id="settings-btn" aria-haspopup="dialog" aria-controls="settings" aria-label="Settings">
+    <span class="status-dot" id="status-dot" aria-hidden="true"></span>
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Zm7.43-2.53a7.8 7.8 0 0 0 0-1.94l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.3 7.3 0 0 0-1.68-.98L14.5 2.42A.5.5 0 0 0 14 2h-4a.5.5 0 0 0-.5.42l-.38 2.66c-.6.25-1.17.58-1.68.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64l2.11 1.65a7.8 7.8 0 0 0 0 1.94l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46c.13.22.39.31.61.22l2.49-1c.51.4 1.08.73 1.68.98l.38 2.66c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.66c.6-.25 1.17-.58 1.68-.98l2.49 1c.22.09.48 0 .61-.22l2-3.46a.5.5 0 0 0-.12-.64l-2.11-1.65Z"/></svg>
+  </button>
+</header>
+
+<main id="main">
+  <section class="welcome" id="welcome">
+    <h1>Check your employment papers against the law.</h1>
+    <p class="lede">Add a contract, offer letter or HR policy and ask about it. Every answer points to the clause and the section of the Act it relies on, so you can read the law for yourself.</p>
+
+    <label class="drop" id="drop">
+      <input type="file" id="file" accept=".pdf,.docx,.doc,.txt,.md,.html,.htm,.rtf" hidden>
+      <span class="drop-title">Add a document</span>
+      <span class="drop-hint">Drop a file here or choose one. PDF, Word or text, up to 50 MB.</span>
+    </label>
+    <p class="sample-line">No document to hand? <button class="link" id="sample-btn">Use a sample contract</button></p>
+
+    <div class="starters" id="starters" aria-label="Example questions"></div>
+
+    <p class="covers">Covers the Code on Wages 2019, the Code on Social Security 2020, the Indian Contract Act 1872 and the POSH Act 2013.</p>
+  </section>
+
+  <ol class="thread" id="thread" aria-live="polite"></ol>
+</main>
+
+<footer class="composer-wrap">
+  <form class="composer" id="composer">
+    <div class="attached" id="attached"></div>
+    <div class="row">
+      <label class="attach-btn" title="Add a document" aria-label="Add a document">
+        <input type="file" id="file2" accept=".pdf,.docx,.doc,.txt,.md,.html,.htm,.rtf" hidden>
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+      </label>
+      <textarea id="q" rows="1" placeholder="Ask about your document or the law" aria-label="Your question"></textarea>
+      <button class="send" id="send" type="submit">Ask</button>
+    </div>
+  </form>
+  <p class="disclaimer">General information about the law, not legal advice.</p>
+</footer>
+
+<aside class="drawer" id="drawer" role="dialog" aria-modal="false" aria-labelledby="drawer-title" hidden>
+  <div class="drawer-head">
+    <div>
+      <p class="drawer-kind" id="drawer-kind"></p>
+      <h2 id="drawer-title"></h2>
+    </div>
+    <button class="icon-btn" id="drawer-close" aria-label="Close source">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+</aside>
+
+<dialog class="settings" id="settings" aria-labelledby="settings-title">
+  <form method="dialog">
+    <h2 id="settings-title">Settings</h2>
+    <fieldset>
+      <legend>Who answers</legend>
+      <label class="choice"><input type="radio" name="engine" value="jev_okf" checked>
+        <span><b>JEV + OKF</b><br><small>A decision model reads the structured law bundle; one language-model call per answer.</small></span></label>
+      <label class="choice"><input type="radio" name="engine" value="rag">
+        <span><b>Agentic RAG</b><br><small>The language model searches the law and checks its own answer; four to six calls.</small></span></label>
+    </fieldset>
+    <fieldset>
+      <legend>Local models</legend>
+      <p class="sys" id="sys-writer">Checking the language model…</p>
+      <p class="sys" id="sys-dec">Checking the decision model…</p>
+    </fieldset>
+    <div class="settings-actions">
+      <button class="ghost" id="clear-btn" value="clear">Clear conversation</button>
+      <button class="primary" value="done">Done</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="settings" id="code-dlg" aria-labelledby="code-title">
+  <form method="dialog">
+    <h2 id="code-title">Access code</h2>
+    <p id="code-msg" class="code-msg"></p>
+    <input id="code-input" class="code-input" type="password" autocomplete="off" aria-label="Access code">
+    <div class="settings-actions">
+      <button class="ghost" value="cancel" formnovalidate>Cancel</button>
+      <button class="primary" value="ok">Continue</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status" hidden></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

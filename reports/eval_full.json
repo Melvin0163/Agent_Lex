@@ -1,0 +1,2476 @@
+{
+  "meta": {
+    "mode": "full",
+    "questions": 18,
+    "llm": "ollama:qwen2.5:7b",
+    "jev_backend": "laya-typed-decisions via local Jev-compatible server",
+    "date": "2026-10-25 17:59"
+  },
+  "summary": {
+    "rag": {
+      "Correct routing (%)": 72.2,
+      "Expected section retrieved (%)": 83.3,
+      "Law sources from expected Act (%)": 58.8,
+      "Avg law sections sent to LLM": 6.67,
+      "Avg seconds per question": 30.96,
+      "Avg LLM calls per question": 4.89,
+      "Avg LLM tokens per question": 8263.56,
+      "Avg Jev decision calls per question": 0.0,
+      "Correct refuse/answer behaviour (%)": 94.4,
+      "Answer cites the expected section (%)": 75.0,
+      "Valid citations (%)": 92.9
+    },
+    "jev_okf": {
+      "Correct routing (%)": 94.4,
+      "Expected section retrieved (%)": 91.7,
+      "Law sources from expected Act (%)": 67.2,
+      "Avg law sections sent to LLM": 3.78,
+      "Avg seconds per question": 24.41,
+      "Avg LLM calls per question": 0.83,
+      "Avg LLM tokens per question": 1589.56,
+      "Avg Jev decision calls per question": 10.44,
+      "Correct refuse/answer behaviour (%)": 83.3,
+      "Answer cites the expected section (%)": 66.7,
+      "Valid citations (%)": 94.9
+    }
+  },
+  "rows": [
+    {
+      "id": "q01",
+      "question": "Can my company enforce a non-compete after I resign?",
+      "document": "02_noncompete_bond.docx",
+      "expected_route": "doc_question",
+      "expected_act": "Indian Contract Act, 1872",
+      "expected_section": "27",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": false,
+      "rag_hit": true,
+      "rag_precision": 0.5,
+      "rag_n_law": 8,
+      "rag_secs": 37.85,
+      "rag_llm_calls": 4,
+      "rag_llm_tokens": 5350,
+      "rag_decision_calls": 0,
+      "rag_answer": "Based on the Indian Contract Act, 1872, Section 27, an agreement by which an employee is restrained from exercising a lawful profession, trade, or business of any kind is void to that extent. However, there is an exception where the goodwill of a business is sold, and the seller may agree to refrain from carrying on a similar business within specified local limits, provided such limits are reasonable [L1].\n\n### Bullet Points:\n- **General Rule:** Agreements in restraint of trade are void.\n- **Exception:** Agreements to refrain from carrying on a similar business after selling goodwill are valid if the limits are reasonable.\n- **Reasonableness:** The court will consider the nature of the business when determining the reasonableness of the limits.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 29",
+        "Code on Social Security Act, 2020, Section 59",
+        "Code on Social Security Act, 2020, Section 53",
+        "Code on Social Security Act, 2020, Section 82",
+        "Code on Social Security Act, 2020, Section 65"
+      ],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 2.899,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.539,
+          "info": "agreement in restraint of trade under Indian Contract Act Section 27 | termination of employment notice period | deductions which may be made from wages | Can my company enforce a non-compete after I resign?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 19.536,
+          "info": "Indian Contract Act s27, Indian Contract Act s26, Indian Contract Act s28, Indian Contract Act s29, Code on Social Security Act s59, Code on Social Security Act s53, Code on Social Security Act s82, Code on Social Security Act s65"
+        },
+        {
+          "node": "answer",
+          "secs": 11.381,
+          "info": "802 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 2.477,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 0.8,
+      "jev_okf_n_law": 5,
+      "jev_okf_secs": 31.89,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 2368,
+      "jev_okf_decision_calls": 11,
+      "jev_okf_answer": "The non-compete clause in your employment agreement may be enforceable, but it must comply with the Indian Contract Act, 1872, particularly Section 27. Here are the key points:\n\n- **Non-compete clauses are generally void to the extent they restrain the Employee from exercising a lawful profession, trade, or business.** [L1]\n- **However, an exception exists if the Employee sells the goodwill of a business.** In this case, the Employee may agree to refrain from carrying on a similar business within specified local limits, provided the limits are reasonable. [L1, Exception 1]\n\nGiven that your non-compete clause does not mention the sale of goodwill, it may be considered void to the extent it restricts your ability to work for any competitor anywhere in India for two years after leaving. [L1]\n\n- **The clause must also be supported by lawful consideration and have a lawful object.** [L2, L3] The consideration for the non-compete clause is the promise to pay Rs. 4,00,000 if you resign earlier than the 24-month period. This consideration is likely lawful as it is a specific sum of money. However, the object of the clause must be lawful, which it is, as it aims to protect the company's interests.\n\n- **The clause must not be unreasonable in its scope or duration.** The two-year restriction may be seen as reasonable, but this would depend on the nature of the business and the specific circumstances. [L1, Exception 1]\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "02_noncompete_bond.docx - Clause 2: Training Bond",
+        "02_noncompete_bond.docx - Clause 3: Non-Compete",
+        "Indian Contract Act, 1872, Section 27 - Agreement in restraint of trade, void",
+        "Indian Contract Act, 1872, Section 10 - What agreements are contracts",
+        "Indian Contract Act, 1872, Section 23 - What consideration and objects are lawful, and what not",
+        "Code on Wages, 2019, Section 20 - Deductions for absence from duty",
+        "Indian Contract Act, 1872, Section 74 - Compensation for breach of contract where penalty stipulated for"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.777,
+          "info": "doc_question {'doc_question': 0.4333, 'review': 0.2152, 'law_question': 0.2341, 'out_of_scope': 0.1174}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.897,
+          "info": "Clause 2: Training Bond (0.315), Clause 3: Non-Compete (0.276)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 3.684,
+          "info": "Non-compete and restraint after leaving a job (0.559), Training bonds, service bonds and liquidated damages (0.466), Validity of employment agreements (0.182)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.437,
+          "info": "Code on Wages, 2019 (0.395), Industrial Employment (Standing Orders) Act, 1946 (0.199) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.314,
+          "info": "Indian Contract Act s27 (0.401), Indian Contract Act s10 (0.427), Indian Contract Act s23 (0.316), Code on Wages s20 (0.151), Indian Contract Act s74 (topic link)"
+        },
+        {
+          "node": "gate",
+          "secs": 1.072,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 17.701,
+          "info": "1478 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 0.001,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q02",
+      "question": "Is the Rs 4 lakh bond in my agreement valid?",
+      "document": "02_noncompete_bond.docx",
+      "expected_route": "doc_question",
+      "expected_act": "Indian Contract Act, 1872",
+      "expected_section": "74",
+      "should_refuse": false,
+      "rag_route": "doc_question",
+      "rag_route_ok": true,
+      "rag_hit": true,
+      "rag_precision": 0.5,
+      "rag_n_law": 8,
+      "rag_secs": 48.5,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 12511,
+      "rag_decision_calls": 0,
+      "rag_answer": "The Rs 4 lakh bond in your agreement may conflict with [L1] of the Indian Contract Act, 1872, as it stipulates a fixed sum (Rs. 4,00,000) as liquidated damages for training costs. However, the validity of this bond depends on whether the sum is reasonable in the context of the training provided and the potential loss to the company. [L1] does not explicitly state that the amount is unreasonable without context, so this would need to be evaluated based on the specific circumstances.\n\n- The bond may also be seen as a penalty for breach of the non-compete clause. If the bond is perceived as an excessive penalty, it could potentially be challenged under [L1], which states that the party complaining of the breach is entitled to reasonable compensation not exceeding the amount named in the contract.\n\n- The bond may also be considered a form of consideration for the training provided. The adequacy of this consideration is not directly addressed by [L7], which discusses the inadequacy of consideration in various scenarios. However, the bond could be seen as a form of consideration for the training, and its reasonableness would be a factor in determining its enforceability.\n\n- The bond does not appear to be an illegal alternative promise as discussed in [L8], which deals with alternative promises where one branch is legal and the other is illegal. The bond in your agreement is not structured as an alternative promise, so [L8] is not directly relevant.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "02_noncompete_bond.docx",
+        "Indian Contract Act, 1872, Section 74",
+        "Indian Contract Act, 1872, Section 73",
+        "Code on Social Security Act, 2020, Section 39",
+        "Code on Social Security Act, 2020, Section 128",
+        "Code on Social Security Act, 2020, Section 74",
+        "Code on Social Security Act, 2020, Section 86",
+        "Indian Contract Act, 1872, Section 25",
+        "Indian Contract Act, 1872, Section 58"
+      ],
+      "rag_issues": [
+        "The claim that the bond may conflict with Section 74 of the Indian Contract Act, 1872, is partially supported but lacks specific context. Section 74 does not explicitly state that the amount is unreasonable without context, but it does suggest that the sum should be reasonable. However, the claim that the bond may be seen as a penalty for breach of the non-compete clause is not directly supported by the sources.",
+        "The claim that the bond may be considered a form of consideration for the training provided is not directly supported by the sources. Section 74 of the Indian Contract Act, 1872, does not address the adequacy of consideration in the context of training bonds.",
+        "The claim that the bond does not appear to be an illegal alternative promise as discussed in Section 58 of the Indian Contract Act, 182, is not directly supported by the sources. Section 58 deals with alternative promises, and the bond in the agreement is not structured as an alternative promise.",
+        "The claim that this is general information, not legal advice, is accurate but does not address the core issues with the claims."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.477,
+          "info": "doc_question"
+        },
+        {
+          "node": "retrieve_doc",
+          "secs": 0.061,
+          "info": "1 chunks"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.109,
+          "info": "compensation for breach of contract where penalty stipulated | liquidated damages for training costs | Is the Rs 4 lakh bond in my agreement valid?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.06,
+          "info": "Indian Contract Act s74, Indian Contract Act s73, Code on Social Security Act s39, Code on Social Security Act s128, Code on Social Security Act s74, Code on Social Security Act s86, Indian Contract Act s25, Indian Contract Act s58"
+        },
+        {
+          "node": "answer",
+          "secs": 12.527,
+          "info": "1036 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 8.95,
+          "info": "issues: The claim about the Rs 4 lakh bond conflicting with [L1] and [L7] of the Indian Contract Act, 1872, is not fully supported by the sources. [L1] does not explicitly state that the amount (Rs. 4,00,000) is unreasonable without context, and [L7] does not directly address the adequacy of consideration f"
+        },
+        {
+          "node": "answer",
+          "secs": 14.021,
+          "info": "1514 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 11.288,
+          "info": "issues: The claim that the bond may conflict with Section 74 of the Indian Contract Act, 1872, is partially supported but lacks specific context. Section 74 does not explicitly state that the amount is unreasonable without context, but it does suggest that the sum should be reasonable. However, the claim th"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 1.0,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 32.28,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 2281,
+      "jev_okf_decision_calls": 13,
+      "jev_okf_answer": "The Rs 4 lakh bond in your agreement may conflict with [L4] and [L73] of the Indian Contract Act, 1872. Here’s why:\n\n- **[L4]** states that all agreements must be made by the free consent of parties competent to contract, for a lawful consideration, and with a lawful object. The bond may be seen as an excessive penalty, which could be considered an unlawful consideration if it is deemed to be a penalty rather than a genuine pre-estimate of loss. [L73] allows for compensation for loss or damage caused by breach of contract, but it must be a reasonable compensation and not a remote or indirect loss.\n\n- **[L73]** specifically mentions that compensation for breach of contract is limited to the natural and foreseeable loss. If the Rs 4 lakh bond is seen as a penalty rather than a genuine pre-estimate of loss, it may be considered excessive and thus invalid.\n\n- **[L74]** provides that when a contract has been broken, if a sum is named in the contract as the amount to be paid in case of such breach, the party complaining of the breach is entitled to receive such compensation, not exceeding the amount so named. However, this must still be a reasonable compensation.\n\nGiven these points, the Rs 4 lakh bond may be seen as an excessive penalty and thus potentially invalid. It is advisable to consult a labor lawyer to ensure the agreement complies with the law and to understand the specific circumstances under which the bond might be enforceable.\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "02_noncompete_bond.docx - Clause 2: Training Bond",
+        "02_noncompete_bond.docx - Clause 3: Non-Compete",
+        "Indian Contract Act, 1872, Section 73 - Compensation of loss or damage caused by breach of contract",
+        "Indian Contract Act, 1872, Section 23 - What consideration and objects are lawful, and what not",
+        "Indian Contract Act, 1872, Section 74 - Compensation for breach of contract where penalty stipulated for",
+        "Indian Contract Act, 1872, Section 10 - What agreements are contracts"
+      ],
+      "jev_okf_issues": [
+        "Possibly unsupported: \"The Rs 4 lakh bond in your agreement may conflict with and of the Indian Contract Act, 1872.\" (cites L4)"
+      ],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.636,
+          "info": "doc_question {'doc_question': 0.4204, 'review': 0.2329, 'law_question': 0.2515, 'out_of_scope': 0.0951}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.826,
+          "info": "Clause 2: Training Bond (0.357), Clause 3: Non-Compete (0.217)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 3.608,
+          "info": "Training bonds, service bonds and liquidated damages (0.654), Validity of employment agreements (0.396), Non-compete and restraint after leaving a job (0.217)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.364,
+          "info": "Code on Wages, 2019 (0.435) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.34,
+          "info": "Indian Contract Act s73 (0.224), Indian Contract Act s23 (0.162), Indian Contract Act s74 (0.203), Indian Contract Act s10 (topic link)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.87,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 17.197,
+          "info": "1505 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 1.439,
+          "info": "1 weak claim(s)"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": true,
+      "jev_okf_refusal_ok": false,
+      "jev_okf_cited_expected": false,
+      "jev_okf_citation_valid": 0.3333333333333333
+    },
+    {
+      "id": "q03",
+      "question": "How soon must my final settlement be paid after I resign?",
+      "document": "03_slow_settlement.pdf",
+      "expected_route": "doc_question",
+      "expected_act": "Code on Wages, 2019",
+      "expected_section": "17",
+      "should_refuse": false,
+      "rag_route": "doc_question",
+      "rag_route_ok": true,
+      "rag_hit": true,
+      "rag_precision": 0.375,
+      "rag_n_law": 8,
+      "rag_secs": 24.18,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 11260,
+      "rag_decision_calls": 0,
+      "rag_answer": "The final settlement should be paid within two working days of your resignation, as per [L1] Section 17(2) of the Code on Wages, 2019.\n\n- [D1] states that all dues will be settled within 60 days after the last working day, which conflicts with the requirement in [L1] Section 17(2) that final dues be paid within two working days of resignation.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "03_slow_settlement.pdf",
+        "Code on Wages, 2019, Section 17",
+        "Code on Wages, 2019, Section 13",
+        "Code on Wages, 2019, Section 39",
+        "Code on Social Security Act, 2020, Section 60",
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 29"
+      ],
+      "rag_issues": [
+        "The claim that the final settlement should be paid within two working days of resignation is not supported by the sources. The sources indicate a 60-day period for settlement after the last working day, not two working days.",
+        "The claim does not accurately reflect the sources."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.467,
+          "info": "doc_question"
+        },
+        {
+          "node": "retrieve_doc",
+          "secs": 0.057,
+          "info": "1 chunks"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.854,
+          "info": "time limit for payment of wages on removal, resignation, within two working days | agreement in restraint of trade | termination of employment | deductions which may be made from wages | How soon must my final settlement be paid after I resign?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.097,
+          "info": "Code on Wages s17, Code on Wages s13, Code on Wages s39, Code on Social Security Act s60, Indian Contract Act s27, Indian Contract Act s26, Indian Contract Act s28, Indian Contract Act s29"
+        },
+        {
+          "node": "answer",
+          "secs": 9.519,
+          "info": "736 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 4.743,
+          "info": "issues: The claim that the final settlement should be paid within 60 days after the last working day conflicts with the requirement in [L1] Section 17(2) that final dues be paid within two working days of resignation."
+        },
+        {
+          "node": "answer",
+          "secs": 4.501,
+          "info": "393 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 2.938,
+          "info": "issues: The claim that the final settlement should be paid within two working days of resignation is not supported by the sources. The sources indicate a 60-day period for settlement after the last working day, not two working days.; The claim does not accurately reflect the sources."
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 1.0,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 21.4,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 1720,
+      "jev_okf_decision_calls": 10,
+      "jev_okf_answer": "According to the Code on Wages, 2019, the final settlement should be paid within two working days of your resignation [L1, Section 17(2)]. However, your company's document states that all dues will be settled within 60 days after the last working day, after clearance of all company assets [D1, Clause 2].\n\n- **Settlement Period in Documents**: 60 days after the last working day [D1, Clause 2].\n- **Legal Requirement**: Within two working days of resignation [L1, Section 17(2)].\n\nThis may conflict with the legal requirement, as the document's settlement period is significantly longer than the legal requirement [L1, Section 17(2)].\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "03_slow_settlement.pdf - Clause 2: Full and Final Settlement",
+        "Code on Wages, 2019, Section 17 - Time limit for payment of wages",
+        "Code on Wages, 2019, Section 43 - Responsibility for payment of various dues",
+        "Code on Wages, 2019, Section 39 - Time limit for payment of bonus",
+        "Code on Wages, 2019, Section 45 - Claims under Code and procedure thereof"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.656,
+          "info": "doc_question {'doc_question': 0.4243, 'review': 0.1932, 'law_question': 0.2335, 'out_of_scope': 0.149}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.865,
+          "info": "Clause 2: Full and Final Settlement (0.415)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 2.322,
+          "info": "Final settlement of dues after resignation or termination (0.942)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.235,
+          "info": "Code on Wages, 2019 (0.558) -> 6 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 5.081,
+          "info": "Code on Wages s17 (0.339), Code on Wages s43 (0.34), Code on Wages s39 (0.256), Code on Wages s45 (0.343)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.947,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 10.285,
+          "info": "683 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 0.0,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": false,
+      "jev_okf_citation_valid": null
+    },
+    {
+      "id": "q04",
+      "question": "Can the company deduct any amount from my salary?",
+      "document": "03_slow_settlement.pdf",
+      "expected_route": "doc_question",
+      "expected_act": "Code on Wages, 2019",
+      "expected_section": "18",
+      "should_refuse": false,
+      "rag_route": "doc_question",
+      "rag_route_ok": true,
+      "rag_hit": true,
+      "rag_precision": 0.375,
+      "rag_n_law": 8,
+      "rag_secs": 14.03,
+      "rag_llm_calls": 4,
+      "rag_llm_tokens": 5889,
+      "rag_decision_calls": 0,
+      "rag_answer": "The company's clause allowing deductions for any reason, without limit, may conflict with [L1] and [L3] of the Code on Wages, 2019. According to these laws, deductions can only be made for specific purposes, such as fines, absence from duty, damage to company property, and other defined reasons. Additionally, any deduction must be recorded and the employee must be given an opportunity to show cause against the deduction [L3].\n\n**Bullet Points:**\n- [L1] and [L3] specify that deductions can only be made for authorized purposes.\n- [L3] requires that deductions be recorded and the employee must be given a chance to show cause.\n- The clause in the offer letter may conflict with these laws as it allows unlimited deductions without specifying the reasons.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "03_slow_settlement.pdf",
+        "Code on Wages, 2019, Section 18",
+        "Code on Wages, 2019, Section 20",
+        "Code on Wages, 2019, Section 21",
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 29",
+        "Code on Social Security Act, 2020, Section 53"
+      ],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.426,
+          "info": "doc_question"
+        },
+        {
+          "node": "retrieve_doc",
+          "secs": 0.015,
+          "info": "1 chunks"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.218,
+          "info": "deductions which may be made from wages | agreement in restraint of trade | termination of employment | Can the company deduct any amount from my salary?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.068,
+          "info": "Code on Wages s18, Code on Wages s20, Code on Wages s21, Indian Contract Act s27, Indian Contract Act s26, Indian Contract Act s28, Indian Contract Act s29, Code on Social Security Act s53"
+        },
+        {
+          "node": "answer",
+          "secs": 9.564,
+          "info": "806 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 2.739,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 1.0,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 28.91,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 1482,
+      "jev_okf_decision_calls": 14,
+      "jev_okf_answer": "Based on the provided documents and Indian law, the company's clause allowing deductions for any reason, without limit, may conflict with the Code on Wages, 2019 [L1] and [L2].\n\n- **[L1]** states that deductions from wages are generally not allowed except as authorized by the Code. The clause in your document allowing deductions \"for any reason, without limit\" is broad and may not comply with the specific conditions laid out in the Code.\n\n- **[L2]** further specifies that deductions for damage or loss must not exceed the amount of the damage or loss caused and must be made only after giving the employee an opportunity to show cause.\n\nTherefore, the company cannot deduct any amount from your salary without adhering to the specific conditions and procedures outlined in the Code on Wages, 2019.\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "03_slow_settlement.pdf - Clause 1: Salary",
+        "03_slow_settlement.pdf - Clause 3: Deductions",
+        "Code on Wages, 2019, Section 18 - Deductions which may be made from wages",
+        "Code on Wages, 2019, Section 21 - Deductions for damage or loss",
+        "Code on Wages, 2019, Section 38 - Deduction of certain amounts from bonus payable",
+        "Code on Wages, 2019, Section 34 - Sums deductible from gross profits"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.636,
+          "info": "doc_question {'doc_question': 0.4169, 'review': 0.1345, 'law_question': 0.2969, 'out_of_scope': 0.1517}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.813,
+          "info": "Clause 1: Salary (0.275), Clause 3: Deductions (0.361)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 3.523,
+          "info": "Deductions and fines from salary (0.905)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.385,
+          "info": "Code on Wages, 2019 (0.501) -> 10 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.125,
+          "info": "Code on Wages s18 (0.292), Code on Wages s21 (0.199), Code on Wages s38 (0.165), Code on Wages s34 (0.182)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.988,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 10.531,
+          "info": "850 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 4.902,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q05",
+      "question": "I am on a fixed-term contract, am I eligible for gratuity?",
+      "document": "04_fixed_term_gratuity.docx",
+      "expected_route": "doc_question",
+      "expected_act": "Code on Social Security Act, 2020",
+      "expected_section": "53",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": false,
+      "rag_hit": true,
+      "rag_precision": 0.8,
+      "rag_n_law": 5,
+      "rag_secs": 27.97,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 9213,
+      "rag_decision_calls": 0,
+      "rag_answer": "Based on the Code on Social Security Act, 2020, Section 53, you are eligible for gratuity if you are on a fixed-term employment contract and meet the conditions specified.\n\n- You are eligible for gratuity if you have rendered continuous service for not less than five years on the termination of your contract period under fixed term employment [D1].\n- However, the completion of continuous service of five years is not necessary if the termination of your employment is due to death, disablement, expiration of fixed term employment, or any other event notified by the Central Government [D1].\n\nThis may conflict with the requirement of five years of continuous service for other termination scenarios, such as superannuation, retirement, or resignation [D1].\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Code on Social Security Act, 2020, Section 53",
+        "Code on Social Security Act, 2020, Section 56",
+        "Indian Contract Act, 1872, Section 35",
+        "Code on Social Security Act, 2020, Section 2",
+        "Code on Social Security Act, 2020, Section 54"
+      ],
+      "rag_issues": [
+        "The draft incorrectly states that the completion of continuous service of five years is not necessary for all termination scenarios, which conflicts with the specific conditions provided in the sources.",
+        "The draft does not accurately reflect the exceptions for death, disablement, expiration of fixed term employment, or other events notified by the Central Government."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.73,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.416,
+          "info": "fixed term contract gratuity | eligibility for gratuity in fixed term contract | payment of gratuity for continuous service in fixed term contract | I am on a fixed-term contract, am I eligible for gratuity?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.075,
+          "info": "Code on Social Security Act s53, Code on Social Security Act s56, Indian Contract Act s35, Code on Social Security Act s2, Code on Social Security Act s54"
+        },
+        {
+          "node": "answer",
+          "secs": 10.211,
+          "info": "951 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 4.91,
+          "info": "issues: The draft incorrectly states that the fixed-term employment contract must have a minimum of five years of service, which is not universally true according to the sources.; The draft incorrectly implies that the fixed-term employment contract must have a minimum of five years of service, which is not"
+        },
+        {
+          "node": "answer",
+          "secs": 7.067,
+          "info": "808 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 3.56,
+          "info": "issues: The draft incorrectly states that the completion of continuous service of five years is not necessary for all termination scenarios, which conflicts with the specific conditions provided in the sources.; The draft does not accurately reflect the exceptions for death, disablement, expiration of fixed"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": false,
+      "rag_citation_valid": 0.0,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 0.75,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 30.47,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 2157,
+      "jev_okf_decision_calls": 14,
+      "jev_okf_answer": "Based on the information provided, you are not eligible for gratuity under the terms of your fixed-term contract. However, this may conflict with the provisions of the Code on Social Security Act, 2020, which states that gratuity is payable upon the termination of a fixed-term employment contract [L1].\n\n- **Eligibility under the Contract**: According to Clause 2 of your fixed-term employment contract, you are not eligible for gratuity under any circumstances [D2].\n\n- **Eligibility under the Law**: Section 53 of the Code on Social Security Act, 2020, states that gratuity is payable upon the termination of a fixed-term employment contract [L1]. This means that if your contract ends, you should be eligible for gratuity unless there is a specific exemption or condition that applies to your situation.\n\nThis may conflict with the condition in your contract that you are not eligible for gratuity. It is recommended that you consult a labor lawyer to understand your rights and the specific conditions under which gratuity may be payable.\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "04_fixed_term_gratuity.docx - Clause 1: Term",
+        "04_fixed_term_gratuity.docx - Clause 2: Gratuity",
+        "Code on Social Security Act, 2020, Section 53 - Payment of gratuity",
+        "Code on Social Security Act, 2020, Section 56 - Determination of amount of gratuity",
+        "Code on Social Security Act, 2020, Section 54 - Continuous service",
+        "Code on Wages, 2019, Section 17 - Time limit for payment of wages"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.637,
+          "info": "doc_question {'doc_question': 0.4581, 'review': 0.1558, 'law_question': 0.2648, 'out_of_scope': 0.1213}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.84,
+          "info": "Clause 1: Term (0.18), Clause 2: Gratuity (0.347)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 3.548,
+          "info": "Gratuity (0.644), Termination of employment (0.303)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.355,
+          "info": "Code on Wages, 2019 (0.352), Payment of Gratuity Act, 1972 (0.23) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.218,
+          "info": "Code on Social Security Act s53 (0.296), Code on Social Security Act s56 (0.537), Code on Social Security Act s54 (0.259), Code on Wages s17 (topic link)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.936,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 13.058,
+          "info": "1091 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 3.876,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": true,
+      "jev_okf_refusal_ok": false,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q06",
+      "question": "Is 12 weeks of maternity leave enough under the law?",
+      "document": "05_leave_policy.txt",
+      "expected_route": "doc_question",
+      "expected_act": "Code on Social Security Act, 2020",
+      "expected_section": "verify",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": false,
+      "rag_hit": true,
+      "rag_precision": 0.875,
+      "rag_n_law": 8,
+      "rag_secs": 24.56,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 10895,
+      "rag_decision_calls": 0,
+      "rag_answer": "According to the Code on Social Security Act, 2020, the maximum period for which any woman shall be entitled to maternity benefit is 26 weeks, of which not more than 12 weeks can be the period immediately preceding the date of her expected delivery. Therefore, 12 weeks of maternity leave is sufficient under the law, but it is not the full entitlement.\n\n- [L1] Section 60(3) states that the maximum period for which any woman shall be entitled to maternity benefit is 26 weeks.\n- [L1] Section 60(1) specifies that the period immediately preceding the day of her delivery can be up to 12 weeks.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Code on Social Security Act, 2020, Section 60",
+        "Code on Social Security Act, 2020, Section 61",
+        "Code on Social Security Act, 2020, Section 62",
+        "Code on Social Security Act, 2020, Section 63",
+        "Code on Social Security Act, 2020, Section 65",
+        "Code on Social Security Act, 2020, Section 54",
+        "Code on Wages, 2019, Section 26",
+        "Code on Social Security Act, 2020, Section 59"
+      ],
+      "rag_issues": [
+        "The draft incorrectly states that 'not more than 12 weeks can be the period immediately preceding the date of her expected delivery'. According to the sources, the total period of 26 weeks includes the period immediately preceding the date of her expected delivery, but does not specify a maximum for that period alone."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.833,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.44,
+          "info": "right to payment of maternity benefit under Indian law | maternity leave period as per Indian law | minimum maternity leave as per Indian law | Is 12 weeks of maternity leave enough under the law?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.072,
+          "info": "Code on Social Security Act s60, Code on Social Security Act s61, Code on Social Security Act s62, Code on Social Security Act s63, Code on Social Security Act s65, Code on Social Security Act s54, Code on Wages s26, Code on Social Security Act s59"
+        },
+        {
+          "node": "answer",
+          "secs": 7.944,
+          "info": "628 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 3.597,
+          "info": "issues: The draft incorrectly states that 12 weeks of maternity leave is not enough, when the sources indicate a maximum of 26 weeks."
+        },
+        {
+          "node": "answer",
+          "secs": 7.037,
+          "info": "642 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 3.628,
+          "info": "issues: The draft incorrectly states that 'not more than 12 weeks can be the period immediately preceding the date of her expected delivery'. According to the sources, the total period of 26 weeks includes the period immediately preceding the date of her expected delivery, but does not specify a maximum for"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "law_question",
+      "jev_okf_route_ok": false,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 0.75,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 25.95,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 1735,
+      "jev_okf_decision_calls": 10,
+      "jev_okf_answer": "According to the Code on Social Security Act, 2020, the maximum period for which any woman is entitled to maternity benefit is 26 weeks, of which not more than 8 weeks can precede the expected date of delivery. This means that 12 weeks of maternity leave is not sufficient as it does not meet the legal requirement of a maximum of 26 weeks, with up to 8 weeks before the expected delivery date.\n\n- **Explanation of the Maximum Period:**\n  - [L1] Section 60(3) states that the maximum period for which any woman shall be entitled to maternity benefit is 26 weeks, of which not more than 8 weeks can precede the expected date of her delivery. [L1]\n\n- **Explanation of the Total Period:**\n  - [L1] Section 60(3) also states that the maximum period entitled to maternity benefit by a woman having two or more surviving children shall be 12 weeks. However, this is specifically for women with two or more surviving children, and the general maximum is 26 weeks. [L1]\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "Code on Social Security Act, 2020, Section 60 - Right to payment of maternity benefit",
+        "Code on Social Security Act, 2020, Section 62 - Notice of claim for maternity benefit and payment thereof",
+        "Code on Social Security Act, 2020, Section 65 - Leave for miscarriage etc",
+        "Maternity Benefit Act, 1961, Section 7 - Payment of maternity benefit in case of death of a woman"
+      ],
+      "jev_okf_issues": [
+        "Possibly unsupported: \"Section 60(3) states that the maximum period for which any woman shall be entitled to maternity benefit is 26 weeks, of which not more than \" (cites L1)"
+      ],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.633,
+          "info": "law_question {'doc_question': 0.354, 'review': 0.1519, 'law_question': 0.3941, 'out_of_scope': 0.1001}"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 1.09,
+          "info": "Maternity benefit and leave (0.873)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.052,
+          "info": "Maternity Benefit Act, 1961 (0.619) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 5.424,
+          "info": "Code on Social Security Act s60 (0.207), Code on Social Security Act s62 (0.221), Code on Social Security Act s65 (0.166), Maternity Benefit Act s7 (0.212)"
+        },
+        {
+          "node": "gate",
+          "secs": 1.051,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 13.242,
+          "info": "1009 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 3.456,
+          "info": "1 weak claim(s)"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q07",
+      "question": "Does our company need an Internal Committee for sexual harassment?",
+      "document": "06_posh_policy.pdf",
+      "expected_route": "doc_question",
+      "expected_act": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+      "expected_section": "4",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": false,
+      "rag_hit": false,
+      "rag_precision": 1.0,
+      "rag_n_law": 7,
+      "rag_secs": 18.24,
+      "rag_llm_calls": 4,
+      "rag_llm_tokens": 5893,
+      "rag_decision_calls": 0,
+      "rag_answer": "Yes, your company needs to have an Internal Committee for handling sexual harassment complaints, as required by the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 [L1, L5].\n\n- **Internal Committee Requirement**: According to Section 4 of the Act, every employer must constitute an Internal Committee to handle complaints of sexual harassment [L5, i. \"Internal Committee\"].\n\n- **Composition and Duties**: The Internal Committee should be constituted and its order should be displayed at a conspicuous place in the workplace [L3, c. \"organise workshops and awareness programmes\"].\n\n- **Time Limit for Complaints**: Aggrieved women can make a complaint within three months from the date of the incident, or from the last incident in a series of incidents [L1, 1. 1. 1].\n\n- **Extension of Time Limit**: The Internal Committee can extend the time limit by up to three months if it is satisfied that circumstances prevented the woman from filing a complaint within the initial period [L1, 1. 1. 2].\n\n- **Alternative Committees**: If the Internal Committee is not constituted, the Local Committee can handle the complaints [L1, 1. 2].\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 9",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 11",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 19",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 14",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 2",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 10",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 21"
+      ],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.595,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 0.873,
+          "info": "sexual harassment internal committee complaint | mandatory internal committee for sexual harassment | Does our company need an Internal Committee for sexual harassment?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.066,
+          "info": "Sexual Harassment of Women at Workplace (Prevention s9, Sexual Harassment of Women at Workplace (Prevention s11, Sexual Harassment of Women at Workplace (Prevention s19, Sexual Harassment of Women at Workplace (Prevention s14, Sexual Harassment of Women at Workplace (Prevention s2, Sexual Harassment of Women at Workplace (Prevention s10, Sexual Harassment of Women at Workplace (Prevention s21"
+        },
+        {
+          "node": "answer",
+          "secs": 13.978,
+          "info": "1218 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 2.728,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": false,
+      "rag_citation_valid": null,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 1.0,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 30.04,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 2175,
+      "jev_okf_decision_calls": 11,
+      "jev_okf_answer": "Based on the laws and your company's policy, your company is required to have an Internal Committee for handling sexual harassment complaints.\n\n- **Internal Committee Requirement**: According to [L2, Section 4], every employer must constitutionally establish an Internal Complaints Committee (ICC) at the workplace. This is mandatory unless the offices or administrative units of the workplace are located at different places or divisional/sub-divisional levels, in which case, an ICC must be established at each administrative unit or office.\n\n- **Composition of ICC**: The ICC must include a Presiding Officer and at least two Members, with at least half of the members being women. The Presiding Officer must be a senior-level woman employee, or if not available, from another office or administrative unit of the same employer or other department or organization. Members should preferably be committed to the cause of women or have experience in social work or legal knowledge.\n\n- **Consequences of Not Having an ICC**: If your company does not have an ICC and the workplace has less than ten workers, or if the complaint is against the employer himself, the District Officer will constitute a Local Complaints Committee (LCC) to handle the complaints.\n\nThis may conflict with [D1, Clause 2], which states that complaints must be made within 7 days of the incident. The law requires a longer period of 3 months from the date of the incident or the last incident in a series. Therefore, your company's policy may not fully comply with the legal requirements.\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "06_posh_policy.pdf - Clause 2: Complaint Window",
+        "06_posh_policy.pdf - Clause 3: Committee",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 9 - Complaint of sexual harassment",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 4 - Constitution of Internal Complaints Committee",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 6 - Constitution and jurisdiction of Local Complaints Committee",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 19 - Duties of employer"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.63,
+          "info": "doc_question {'doc_question': 0.4079, 'review': 0.1971, 'law_question': 0.2929, 'out_of_scope': 0.1021}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.742,
+          "info": "Clause 2: Complaint Window (0.275), Clause 3: Committee (0.307)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 3.587,
+          "info": "Sexual harassment at the workplace (POSH) (0.872)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.34,
+          "info": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013 (0.828) -> 9 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.028,
+          "info": "Sexual Harassment of Women at Workplace (Prevention s9 (0.19), Sexual Harassment of Women at Workplace (Prevention s4 (0.237), Sexual Harassment of Women at Workplace (Prevention s6 (0.342), Sexual Harassment of Women at Workplace (Prevention s19 (0.183)"
+        },
+        {
+          "node": "gate",
+          "secs": 1.043,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 16.664,
+          "info": "1610 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 0.002,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": false,
+      "jev_okf_citation_valid": null
+    },
+    {
+      "id": "q08",
+      "question": "Is the 7-day complaint window in our policy valid?",
+      "document": "06_posh_policy.pdf",
+      "expected_route": "doc_question",
+      "expected_act": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+      "expected_section": "9",
+      "should_refuse": false,
+      "rag_route": "doc_question",
+      "rag_route_ok": true,
+      "rag_hit": false,
+      "rag_precision": 0.0,
+      "rag_n_law": 8,
+      "rag_secs": 29.17,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 12952,
+      "rag_decision_calls": 0,
+      "rag_answer": "The 7-day complaint window in your policy may conflict with the provisions of the Code on Wages, 2019, Section 17(2) [L1], which states that wages payable to an employee who has been removed, dismissed, retrenched, or resigned must be paid within two working days. While this section primarily deals with wage payments, it sets a strict time limit for the payment of wages due to certain events, which could potentially conflict with your policy's complaint window.\n\n**Bullet Points:**\n- [L1] Section 17(2) of the Code on Wages, 2019, mandates that wages be paid within two working days for employees who have been removed, dismissed, retrenched, or resigned.\n- This may conflict with the 7-day complaint window in your policy, as it sets a shorter time limit for wage payments.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "06_posh_policy.pdf",
+        "Code on Wages, 2019, Section 17",
+        "Code on Wages, 2019, Section 13",
+        "Code on Wages, 2019, Section 2",
+        "Code on Wages, 2019, Section 39",
+        "Code on Social Security Act, 2020, Section 53",
+        "Code on Social Security Act, 2020, Section 59",
+        "Code on Social Security Act, 2020, Section 2",
+        "Code on Social Security Act, 2020, Section 65"
+      ],
+      "rag_issues": [
+        "The draft incorrectly states that Section 17(2) of the Code on Wages, 2019, mandates a two-working-day limit for all wage payments, which is not accurate. The section specifically addresses payments due to certain events like removal, dismissal, retrenchment, or resignation."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.478,
+          "info": "doc_question"
+        },
+        {
+          "node": "retrieve_doc",
+          "secs": 0.066,
+          "info": "1 chunks"
+        },
+        {
+          "node": "rewrite",
+          "secs": 2.008,
+          "info": "time limit for payment of wages on removal, dismissal, retrenchment or resignation, within two working days | termination of employment | agreement in restraint of trade | sexual harassment internal committee complaint | Is the 7-day complaint window in our policy valid?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.118,
+          "info": "Code on Wages s17, Code on Wages s13, Code on Wages s2, Code on Wages s39, Code on Social Security Act s53, Code on Social Security Act s59, Code on Social Security Act s2, Code on Social Security Act s65"
+        },
+        {
+          "node": "answer",
+          "secs": 7.809,
+          "info": "510 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 5.48,
+          "info": "issues: The draft incorrectly states that Section 17(2) of the Code on Wages, 2019, pertains to complaints and not to wage payments. The actual section deals with the time limit for payment of wages, not complaints."
+        },
+        {
+          "node": "answer",
+          "secs": 9.422,
+          "info": "826 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 3.782,
+          "info": "issues: The draft incorrectly states that Section 17(2) of the Code on Wages, 2019, mandates a two-working-day limit for all wage payments, which is not accurate. The section specifically addresses payments due to certain events like removal, dismissal, retrenchment, or resignation."
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": false,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": false,
+      "jev_okf_precision": 0.0,
+      "jev_okf_n_law": 5,
+      "jev_okf_secs": 25.94,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 1792,
+      "jev_okf_decision_calls": 12,
+      "jev_okf_answer": "The 7-day complaint window in your policy is valid, but it may conflict with the provisions of the Code on Wages, 2019, Section 15 [L2], which requires wages to be paid in a specific manner. However, the policy does not appear to be related to wage payments, so it is generally valid.\n\n- **Compliance with Law**: The 7-day complaint window does not directly conflict with the Code on Wages, 2019, as it pertains to a different aspect of employment (complaints) rather than wage payments. [L2]\n- **Consent and Free Will**: The policy clause does not appear to involve coercion, undue influence, fraud, misrepresentation, or mistake, which are conditions under which consent is not free [L3]. Therefore, the clause is likely valid as long as it is applied fairly and without such issues.\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "06_posh_policy.pdf - Clause 2: Complaint Window",
+        "Indian Contract Act, 1872, Section 23 - What consideration and objects are lawful, and what not",
+        "Code on Wages, 2019, Section 15 - Mode of payment of wages",
+        "Indian Contract Act, 1872, Section 14 - \"Free consent\" defined",
+        "Code on Wages, 2019, Section 17 - Time limit for payment of wages",
+        "Indian Contract Act, 1872, Section 10 - What agreements are contracts"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.537,
+          "info": "doc_question {'doc_question': 0.3967, 'review': 0.2579, 'law_question': 0.2513, 'out_of_scope': 0.0941}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.8,
+          "info": "Clause 2: Complaint Window (0.664)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 2.332,
+          "info": "Validity of employment agreements (0.346), Timely payment of salary and wage periods (0.179)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.383,
+          "info": "Code on Wages, 2019 (0.389) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.229,
+          "info": "Indian Contract Act s23 (0.197), Code on Wages s15 (0.207), Indian Contract Act s14 (0.211), Code on Wages s17 (0.165), Indian Contract Act s10 (topic link)"
+        },
+        {
+          "node": "gate",
+          "secs": 1.141,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 11.786,
+          "info": "833 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 1.726,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": false,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q09",
+      "question": "Was my termination legal?",
+      "document": "07_termination_letter.txt",
+      "expected_route": "doc_question",
+      "expected_act": "",
+      "expected_section": "",
+      "should_refuse": true,
+      "rag_route": "law_question",
+      "rag_route_ok": false,
+      "rag_hit": null,
+      "rag_precision": null,
+      "rag_n_law": 8,
+      "rag_secs": 64.11,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 10728,
+      "rag_decision_calls": 0,
+      "rag_answer": "Based on the information provided, the legality of your termination cannot be determined without specific details from your contract, offer letter, or HR policies. However, I can provide a general analysis based on the sources you have provided.\n\n### General Analysis\n\n1. **Coercion and Duress**:\n   - [L2] defines \"coercion\" as the committing or threatening to commit any act forbidden by the Indian Penal Code or the unlawful detaining of property. If your termination was due to coercion or duress, it may be illegal.\n   - [L2] also states that it is immaterial whether the act is an offense under the law of the place where it occurred. Therefore, if you were coerced or threatened, this could invalidate the termination.\n\n2. **Joint Promisors and Releases**:\n   - [L3] states that a release of one joint promisor does not discharge the other joint promisors. This means if multiple parties were involved in the agreement, the release of one party does not absolve the others.\n   - If your termination involved multiple parties, this could be relevant.\n\n3. **Restraint of Marriage and Trade**:\n   - [L4] and [L5] state that agreements in restraint of marriage and trade are void. If your termination agreement included such restraints, it may be invalid.\n   - [L5] provides an exception where the sale of goodwill is involved, but this would need to be specifically addressed in your agreement.\n\n4. **Restraint of Legal Proceedings**:\n   - [L6] states that agreements that restrict the enforcement of rights through legal proceedings are void. If your termination agreement included such restrictions, it may be invalid.\n   - The exceptions in [L6] provide that agreements to refer disputes to arbitration are valid, but this would need to be specifically addressed in your agreement.\n\n5. **Uncertainty in Agreements**:\n   - [L7] states that agreements that are uncertain or incapable of being made certain are void. If your termination agreement was unclear, it may be invalid.\n   - The illustrations in [L7] provide examples of what constitutes uncertainty, which could be relevant to your agreement.\n\n6. **Sexual Harassment**:\n   - [L8] outlines the process for filing complaints of sexual harassment. If your termination was related to sexual harassment, this could be relevant, but it does not directly address the legality of the termination.\n\n### Specific Clauses and Conditions\n\n- **Coercion and Duress**: Check if your termination involved any form of coercion or duress.\n- **Joint Promisors and Releases**: Ensure that the release of one party does not affect the others.\n- **Restraint of Marriage and Trade**: Verify if the agreement includes any restraints on marriage or trade.\n- **Restraint of Legal Proceedings**: Ensure that the agreement does not restrict your right to seek legal remedies.\n- **Uncertainty in Agreements**: Confirm that the agreement is clear and specific.\n\n### Conclusion\n\nThis is general information, not legal advice. To determine the legality of your termination, you should consult a labour lawyer who can review your specific contract, offer letter, and HR policies.",
+      "rag_sources": [
+        "Indian Contract Act, 1872, Section 1",
+        "Indian Contract Act, 1872, Section 15",
+        "Indian Contract Act, 1872, Section 44",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 29",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 9"
+      ],
+      "rag_issues": [
+        "The draft does not provide specific details from the contract, offer letter, or HR policies, which are necessary to determine the legality of the termination.",
+        "The analysis provided is based on general principles, but it does not address the specific terms and conditions of the contract, which are crucial for a precise legal assessment.",
+        "The draft does not mention the specific terms of the termination agreement, which are essential for applying the relevant sections of the Indian Contract Act, 1872."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.543,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.505,
+          "info": "termination of employment under Indian Contract Act | agreement in restraint of trade | sexual harassment internal committee complaint | right to payment of maternity benefit | Was my termination legal?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.128,
+          "info": "Indian Contract Act s1, Indian Contract Act s15, Indian Contract Act s44, Indian Contract Act s26, Indian Contract Act s27, Indian Contract Act s28, Indian Contract Act s29, Sexual Harassment of Women at Workplace (Prevention s9"
+        },
+        {
+          "node": "answer",
+          "secs": 20.364,
+          "info": "2162 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 7.759,
+          "info": "issues: The draft does not directly reference any specific sections of the Indian Contract Act, 1872, or the Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, which are the sources provided.; The draft does not provide specific legal advice but rather outlines genera"
+        },
+        {
+          "node": "answer",
+          "secs": 27.969,
+          "info": "3110 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 5.835,
+          "info": "issues: The draft does not provide specific details from the contract, offer letter, or HR policies, which are necessary to determine the legality of the termination.; The analysis provided is based on general principles, but it does not address the specific terms and conditions of the contract, which are c"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": true,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": null,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "doc_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": null,
+      "jev_okf_precision": null,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 30.0,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 1657,
+      "jev_okf_decision_calls": 14,
+      "jev_okf_answer": "The termination letter states that your employment is terminated with immediate effect for performance reasons, and no notice period or pay in lieu will be provided. This may conflict with [L3] Section 17(2) of the Code on Wages, 2019, which requires that wages be paid within two working days of removal, dismissal, or retrenchment. Since your pending salary will be paid in the next payroll cycle, this could potentially delay the payment beyond the two working days required by law.\n\n### Key Points:\n- **Immediate Termination:** The termination is immediate, which is generally acceptable under employment law.\n- **No Notice or Pay in Lieu:** This may conflict with [L3] Section 17(2) as it does not provide a notice period or pay in lieu, which could be required depending on the circumstances.\n- **Pending Salary Payment:** The pending salary will be paid in the next payroll cycle, which may not comply with the two working day requirement under [L3] Section 17(2).\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "07_termination_letter.txt - Clause 1: Termination",
+        "07_termination_letter.txt - Clause 2: Dues",
+        "Code on Wages, 2019, Section 43 - Responsibility for payment of various dues",
+        "Code on Wages, 2019, Section 15 - Mode of payment of wages",
+        "Code on Wages, 2019, Section 17 - Time limit for payment of wages",
+        "Code on Wages, 2019, Section 45 - Claims under Code and procedure thereof"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.657,
+          "info": "doc_question {'doc_question': 0.38, 'review': 0.2213, 'law_question': 0.2737, 'out_of_scope': 0.125}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.597,
+          "info": "Clause 1: Termination (0.394), Clause 2: Dues (0.343)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 3.516,
+          "info": "Termination of employment (0.955), Timely payment of salary and wage periods (0.24), Final settlement of dues after resignation or termination (0.239)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.432,
+          "info": "Code on Wages, 2019 (0.498) -> 10 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 5.868,
+          "info": "Code on Wages s43 (0.312), Code on Wages s15 (0.186), Code on Wages s17 (0.174), Code on Wages s45 (0.185)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.931,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 12.636,
+          "info": "1019 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 4.353,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": false,
+      "jev_okf_cited_expected": null,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q10",
+      "question": "Review this contract and tell me what to be careful about",
+      "document": "02_noncompete_bond.docx",
+      "expected_route": "review",
+      "expected_act": "",
+      "expected_section": "",
+      "should_refuse": false,
+      "rag_route": "review",
+      "rag_route_ok": true,
+      "rag_hit": null,
+      "rag_precision": null,
+      "rag_n_law": 8,
+      "rag_secs": 53.54,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 12787,
+      "rag_decision_calls": 0,
+      "rag_answer": "This is a review of the clauses in the Employment Agreement between Brightwave Technologies Pvt. Ltd. and Arjun Mehta, with specific attention to potential conflicts with Indian law.\n\n- **Training Bond Clause (Clause 2)**\n  - This clause may conflict with Indian Contract Act, 1872, Section 27 [L1]. The clause requires the Employee to serve for at least 24 months, and if the Employee resigns earlier, the Employee must pay Rs. 4,00,000 as liquidated damages for training costs. This restriction on the Employee's right to leave the company could be seen as a restraint on trade, which is generally void under Section 27. However, the clause does not specify a reasonable local limit, which is an exception to the general rule. Therefore, this clause may be scrutinized by a court to determine if it is reasonable in the context of the business.\n\n- **Non-Compete Clause (Clause 3)**\n  - This clause may conflict with Indian Contract Act, 1872, Section 27 [L1]. The clause prohibits the Employee from working for or advising any competitor of the Company for 2 years after leaving. This restriction on the Employee's right to work for competitors could be seen as a restraint on trade, which is generally void under Section 27. The clause does not specify a reasonable local limit, which is an exception to the general rule. Therefore, this clause may be scrutinized by a court to determine if it is reasonable in the context of the business.\n\n- **Intellectual Property Clause (Clause 4)**\n  - This clause does not raise any issues under the cited laws. The clause states that all work created during employment belongs to the Company, which is a common and enforceable provision in employment agreements.\n\n- **Notice Period Clause (Clause 1)**\n  - This clause does not raise any issues under the cited laws. The clause allows either party to terminate the agreement by giving 90 days' written notice, which is a standard provision and does not conflict with any of the cited laws.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "02_noncompete_bond.docx",
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 29",
+        "Code on Social Security Act, 2020, Section 53",
+        "Code on Social Security Act, 2020, Section 59",
+        "Code on Social Security Act, 2020, Section 2",
+        "Code on Social Security Act, 2020, Section 65"
+      ],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.618,
+          "info": "review"
+        },
+        {
+          "node": "retrieve_doc",
+          "secs": 0.266,
+          "info": "1 chunks"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.846,
+          "info": "agreement in restraint of trade | termination of employment | compensation for breach of contract where penalty stipulated, liquidated damages | intellectual property rights in employment contract | Review this contract and tell me what to be careful about"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.189,
+          "info": "Indian Contract Act s27, Indian Contract Act s26, Indian Contract Act s28, Indian Contract Act s29, Code on Social Security Act s53, Code on Social Security Act s59, Code on Social Security Act s2, Code on Social Security Act s65"
+        },
+        {
+          "node": "answer",
+          "secs": 22.181,
+          "info": "1835 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 7.283,
+          "info": "issues: The training bond clause may conflict with Indian Contract Act, 1872, Section 27 as it restricts the Employee from leaving the company for a period longer than the training period, which could be seen as a restraint on trade.; The non-compete clause may conflict with Indian Contract Act, 1872, Secti"
+        },
+        {
+          "node": "answer",
+          "secs": 20.035,
+          "info": "2029 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 1.114,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": null,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "review",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": null,
+      "jev_okf_precision": null,
+      "jev_okf_n_law": 6,
+      "jev_okf_secs": 40.26,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 2960,
+      "jev_okf_decision_calls": 14,
+      "jev_okf_answer": "### Direct Answer\nClause 2 of the Employment Agreement, which imposes a 24-month training bond, may conflict with the Indian Contract Act, 1872, as it could be seen as an excessive penalty. Clause 3, which includes a non-compete clause, may also be overly restrictive and could be challenged in court. Clause 4, regarding intellectual property, is generally acceptable. Clause 1, which sets a 90-day notice period, is within reasonable limits.\n\n### Bullet Points with Citations\n- **Clause 1: Notice Period**\n  - **No issue**: The 90-day notice period is within a reasonable range and does not conflict with any laws [L1].\n\n- **Clause 2: Training Bond**\n  - **Possible conflict with [L2]**: The training bond of Rs. 4,00,000 may be seen as a penalty for early termination. The court may consider this excessive if the actual training costs are significantly lower. Section 74 of the Indian Contract Act, 1872, allows for compensation but not necessarily the full amount stipulated. The court may award a reasonable sum, not exceeding the actual costs.\n\n- **Clause 3: Non-Compete**\n  - **Possible conflict with [L2]**: The non-compete clause for 2 years may be overly restrictive. Section 27 of the Indian Contract Act, 1872, states that agreements to restrain trade are void to that extent. However, the exception allows for reasonable limits on the sale of goodwill. The court may find the 2-year restriction unreasonable if it is not justified by the nature of the business.\n\n- **Clause 4: Intellectual Property**\n  - **No issue**: The clause stating that all work created during employment belongs to the company is generally acceptable and does not conflict with any laws [L1].\n\n### This is general information, not legal advice.",
+      "jev_okf_sources": [
+        "02_noncompete_bond.docx - Clause 1: Notice Period",
+        "02_noncompete_bond.docx - Clause 2: Training Bond",
+        "02_noncompete_bond.docx - Clause 3: Non-Compete",
+        "02_noncompete_bond.docx - Clause 4: Intellectual Property",
+        "Indian Contract Act, 1872, Section 10 - What agreements are contracts",
+        "Indian Contract Act, 1872, Section 74 - Compensation for breach of contract where penalty stipulated for",
+        "Indian Contract Act, 1872, Section 73 - Compensation of loss or damage caused by breach of contract",
+        "Indian Contract Act, 1872, Section 23 - What consideration and objects are lawful, and what not",
+        "Code on Wages, 2019, Section 17 - Time limit for payment of wages",
+        "Indian Contract Act, 1872, Section 27 - Agreement in restraint of trade, void"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.651,
+          "info": "review {'doc_question': 0.3369, 'review': 0.3914, 'law_question': 0.1926, 'out_of_scope': 0.0791}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.006,
+          "info": "Clause 1: Notice Period (None), Clause 2: Training Bond (None), Clause 3: Non-Compete (None), Clause 4: Intellectual Property (None)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 4.503,
+          "info": "Termination of employment (0.728), Training bonds, service bonds and liquidated damages (0.712), Non-compete and restraint after leaving a job (0.537), Validity of employment agreements (0.217)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.594,
+          "info": "Code on Wages, 2019 (0.331), Indian Contract Act, 1872 (0.263) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.937,
+          "info": "Indian Contract Act s10 (0.221), Indian Contract Act s74 (0.234), Indian Contract Act s73 (0.229), Indian Contract Act s23 (0.157), Code on Wages s17 (topic link), Indian Contract Act s27 (topic link)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.0,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 21.576,
+          "info": "1732 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 4.982,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": null,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q11",
+      "question": "Review this agreement",
+      "document": "01_clean_agreement.txt",
+      "expected_route": "review",
+      "expected_act": "",
+      "expected_section": "",
+      "should_refuse": false,
+      "rag_route": "review",
+      "rag_route_ok": true,
+      "rag_hit": null,
+      "rag_precision": null,
+      "rag_n_law": 8,
+      "rag_secs": 76.18,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 14465,
+      "rag_decision_calls": 0,
+      "rag_answer": "This is a review of the Employment Agreement between Northwind Software Pvt. Ltd. and Priya Nair, with reference to relevant Indian laws.\n\n### Direct Answer\nThe agreement may conflict with certain provisions of the Code on Social Security Act, 2020, and the Indian Contract Act, 1872. Specifically, the agreement does not specify the conditions for gratuity payment, does not mention provisions for maternity benefit, and lacks procedures for claims related to accidents or deaths.\n\n### Clause-by-Clause Review\n\n1. **Probation (Clause 1)**\n   - **No conflict with law.** The agreement allows for a 3-month probation period with 15 days' notice, which is within the general guidelines but does not specify the conditions for termination, which may conflict with [L3] and [L4] regarding notice and claims for compensation.\n\n2. **Notice Period (Clause 2)**\n   - **No conflict with law.** The agreement specifies a 60-day notice period after confirmation, which is in line with the general guidelines but does not specify the conditions for termination, which may conflict with [L3] and [L4] regarding notice and claims for compensation.\n\n3. **Confidentiality (Clause 3)**\n   - **No conflict with law.** The agreement requires the employee to keep company confidential information secret during and after employment, which is a common and lawful provision.\n\n4. **Final Settlement (Clause 4)**\n   - **No conflict with law.** The agreement states that all dues will be paid within two working days of the last working day, as required by applicable law, which is in line with the law.\n\n5. **Benefits (Clause 5)**\n   - **No conflict with law.** The agreement provides for provident fund, gratuity, and maternity benefits as per applicable law, which is in line with the law. However, the agreement does not specify the conditions for gratuity payment, which may conflict with [L1].\n\n6. **Working Hours (Clause 6)**\n   - **No conflict with law.** The agreement specifies standard working hours and overtime payment as per applicable law, which is in line with the law.\n\n### Summary of Possible Conflicts\n\n- **Gratuity Payment (Clause 5 and [L1])**:\n  - The agreement does not specify the conditions for gratuity payment, which may conflict with [L1]. Section 53 of the Code on Social Security Act, 2020, outlines specific conditions for gratuity, including continuous service for at least five years, and the agreement should specify these conditions.\n\n- **Maternity Benefit (Clause 5 and [L2])**:\n  - The agreement does not mention provisions for maternity benefit, which may conflict with [L2]. Section 60 of the Code on Social Security Act, 2020, provides for the right to payment of maternity benefit, and the agreement should include these provisions.\n\n- **Claims for Compensation (Clauses 1 and 2 and [L3] and [L4])**:\n  - The agreement does not include procedures for claims related to accidents or deaths, which may conflict with [L3] and [L4]. Section 82 and 88 of the Code on Social Security Act, 2020, outline the procedures for claims for compensation, and the agreement should include these procedures.\n\n### This is general information, not legal advice.",
+      "rag_sources": [
+        "01_clean_agreement.txt",
+        "Code on Social Security Act, 2020, Section 53",
+        "Code on Social Security Act, 2020, Section 60",
+        "Code on Social Security Act, 2020, Section 82",
+        "Code on Social Security Act, 2020, Section 88",
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 25"
+      ],
+      "rag_issues": [
+        "The agreement does not specify the conditions for gratuity payment, which may conflict with [L1].",
+        "The agreement does not mention provisions for maternity benefit, which may conflict with [L2].",
+        "The agreement does not include procedures for claims related to accidents or deaths, which may conflict with [L3] and [L4]."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 2.568,
+          "info": "review"
+        },
+        {
+          "node": "retrieve_doc",
+          "secs": 0.402,
+          "info": "1 chunks"
+        },
+        {
+          "node": "rewrite",
+          "secs": 2.238,
+          "info": "termination of employment 60 days notice | agreement in restraint of trade probation period | time limit for payment of wages on removal two working days | payment of gratuity continuous service | Review this agreement"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.107,
+          "info": "Code on Social Security Act s53, Code on Social Security Act s60, Code on Social Security Act s82, Code on Social Security Act s88, Indian Contract Act s27, Indian Contract Act s26, Indian Contract Act s28, Indian Contract Act s25"
+        },
+        {
+          "node": "answer",
+          "secs": 26.085,
+          "info": "2444 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 6.839,
+          "info": "issues: The draft does not specify the conditions for gratuity payment, which may conflict with [L1].; The draft does not mention provisions for maternity benefit, which may conflict with [L2].; The draft does not include procedures for claims related to accidents or deaths, which may conflict with [L3] and"
+        },
+        {
+          "node": "answer",
+          "secs": 32.722,
+          "info": "3159 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 5.212,
+          "info": "issues: The agreement does not specify the conditions for gratuity payment, which may conflict with [L1].; The agreement does not mention provisions for maternity benefit, which may conflict with [L2].; The agreement does not include procedures for claims related to accidents or deaths, which may conflict w"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": null,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "review",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": null,
+      "jev_okf_precision": null,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 47.91,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 2224,
+      "jev_okf_decision_calls": 15,
+      "jev_okf_answer": "### Direct Answer\nClause 2 (Notice Period) and Clause 4 (Final Settlement) appear to be in compliance with the relevant laws. Clause 3 (Confidentiality) and Clause 6 (Working Hours) are generally in line with the laws, but specific conditions and exceptions should be considered. Clause 1 (Probation) and Clause 5 (Benefits) may conflict with certain provisions of the Code on Social Security Act, 2020.\n\n### Clause-by-Clause Review\n\n- **Clause 1: Probation**\n  - **Possible Conflict:** [L1] and [L2] of the Code on Social Security Act, 2020, provide detailed provisions for maternity benefits, which may conflict with the 3-month probation period. Specifically, the Code requires a woman to work for at least 80 days in the 12 months preceding her expected delivery to be eligible for maternity benefits. The 3-month probation period may not meet this requirement.\n  - **Possible Conflict:** [L3] of the Code on Social Security Act, 2020, requires a woman to give notice of her pregnancy and expected delivery date. The 15-day notice period for ending employment during probation may not align with the requirement to give notice at least 8 weeks before the expected delivery date.\n\n- **Clause 2: Notice Period**\n  - **No Issue:** The 60-day notice period or salary in lieu of notice is generally in line with the law. However, specific provisions for termination during maternity leave should be considered.\n\n- **Clause 3: Confidentiality**\n  - **No Issue:** The confidentiality clause is generally in line with the law, provided that the company's confidential information is clearly defined and protected.\n\n- **Clause 4: Final Settlement**\n  - **No Issue:** The clause stating that all dues will be paid within two working days of the last working day is in line with applicable law.\n\n- **Clause 5: Benefits**\n  - **Possible Conflict:** The clause stating that benefits will be provided as per applicable law may conflict with specific provisions of the Code on Social Security Act, 2020, which provide detailed requirements for maternity benefits, provident fund, and gratuity. The clause should specify that the benefits will be provided in accordance with the Code on Social Security Act, 2020, to avoid any discrepancies.\n\n- **Clause 6: Working Hours**\n  - **No Issue:** The standard working hours and overtime payment provisions are generally in line with the law, provided that the overtime rate is not less than twice the normal rate of wages as per [L4] of the Code on Wages, 2019.\n\n### Conclusion\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "01_clean_agreement.txt - Clause 1: Probation",
+        "01_clean_agreement.txt - Clause 2: Notice Period",
+        "01_clean_agreement.txt - Clause 3: Confidentiality",
+        "01_clean_agreement.txt - Clause 4: Final Settlement",
+        "01_clean_agreement.txt - Clause 5: Benefits",
+        "01_clean_agreement.txt - Clause 6: Working Hours",
+        "Code on Social Security Act, 2020, Section 60 - Right to payment of maternity benefit",
+        "Code on Social Security Act, 2020, Section 61 - Continuance of payment of maternity benefit in certain cases",
+        "Code on Social Security Act, 2020, Section 62 - Notice of claim for maternity benefit and payment thereof",
+        "Code on Wages, 2019, Section 14 - Wages for overtime work"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.71,
+          "info": "review {'doc_question': 0.2525, 'review': 0.5041, 'law_question': 0.1407, 'out_of_scope': 0.1027}"
+        },
+        {
+          "node": "pick_clauses",
+          "secs": 0.071,
+          "info": "Clause 1: Probation (None), Clause 2: Notice Period (None), Clause 3: Confidentiality (None), Clause 4: Final Settlement (None), Clause 5: Benefits (None), Clause 6: Working Hours (None)"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 6.887,
+          "info": "Working hours and overtime pay (0.863), Maternity benefit and leave (0.473), Final settlement of dues after resignation or termination (0.46), Timely payment of salary and wage periods (0.414), Validity of employment agreements (0.306)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.529,
+          "info": "Code on Wages, 2019 (0.402) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 6.805,
+          "info": "Code on Social Security Act s60 (0.38), Code on Social Security Act s61 (0.211), Code on Social Security Act s62 (0.177), Code on Wages s14 (topic link)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.0,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 27.396,
+          "info": "2556 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 4.502,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": null,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q12",
+      "question": "Am I eligible for gratuity after 4 years?",
+      "document": null,
+      "expected_route": "law_question",
+      "expected_act": "Code on Social Security Act, 2020",
+      "expected_section": "53",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": true,
+      "rag_hit": true,
+      "rag_precision": 1.0,
+      "rag_n_law": 4,
+      "rag_secs": 32.65,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 6578,
+      "rag_decision_calls": 0,
+      "rag_answer": "Based on the provisions of the Code on Social Security Act, 2020, Section 53, you are not eligible for gratuity after 4 years of continuous service because the minimum requirement is 5 years of continuous service. However, there are several exceptions to this requirement:\n\n- [L1] Section 53 (1) (e) states that gratuity is payable on the termination of employment due to the expiration of a fixed-term employment contract, even if the continuous service is less than 5 years.\n- [L1] Section 53 (1) (c) states that gratuity is payable if the employee dies or becomes disabled due to an accident or disease, regardless of the continuous service period.\n- [L1] Section 53 (2) further states that the completion of continuous service of five years is not necessary if the termination of employment is due to death, disablement, expiration of fixed-term employment, or any other event notified by the Central Government.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Code on Social Security Act, 2020, Section 53",
+        "Code on Social Security Act, 2020, Section 56",
+        "Code on Social Security Act, 2020, Section 78",
+        "Code on Social Security Act, 2020, Section 134"
+      ],
+      "rag_issues": [
+        "The draft incorrectly states that the minimum requirement is 5 years of continuous service, when it is actually the minimum requirement for some scenarios.",
+        "The draft does not mention the exception for working journalists, which is a specific case where the requirement is 3 years of continuous service."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.83,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.102,
+          "info": "payment of gratuity continuous service fixed term | eligibility for gratuity after 4 years | Am I eligible for gratuity after 4 years?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.078,
+          "info": "Code on Social Security Act s53, Code on Social Security Act s56, Code on Social Security Act s78, Code on Social Security Act s134"
+        },
+        {
+          "node": "answer",
+          "secs": 9.763,
+          "info": "1007 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 8.93,
+          "info": "issues: The draft incorrectly states that gratuity is not payable after 4 years of continuous service.; The draft does not accurately reflect the exceptions to the five-year service requirement for gratuity payment."
+        },
+        {
+          "node": "answer",
+          "secs": 9.006,
+          "info": "964 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 2.934,
+          "info": "issues: The draft incorrectly states that the minimum requirement is 5 years of continuous service, when it is actually the minimum requirement for some scenarios.; The draft does not mention the exception for working journalists, which is a specific case where the requirement is 3 years of continuous servi"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "law_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 0.6,
+      "jev_okf_n_law": 5,
+      "jev_okf_secs": 28.51,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 2373,
+      "jev_okf_decision_calls": 13,
+      "jev_okf_answer": "Based on the information provided, you are not eligible for gratuity after 4 years of continuous service. According to [L3], gratuity is payable only after an employee has rendered continuous service for not less than five years. This may conflict with [L5] of the Payment of Gratuity Act, 1972, which was repealed and replaced by the Code on Social Security Act, 2020. However, the new law specifies a minimum of five years of continuous service, whereas the old law did not have this requirement.\n\n- **Not eligible for gratuity after 4 years** [L3]\n- **Minimum continuous service required is 5 years** [L3]\n- **Repealed law had different conditions** [L5]\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "Code on Social Security Act, 2020, Section 54 - Continuous service",
+        "Code on Social Security Act, 2020, Section 56 - Determination of amount of gratuity",
+        "Code on Social Security Act, 2020, Section 53 - Payment of gratuity",
+        "Payment of Gratuity Act, 1972, Section 15 - Power to make rules",
+        "Payment of Gratuity Act, 1972, Section 7 - Determination of the amount of gratuity"
+      ],
+      "jev_okf_issues": [
+        "Possibly unsupported: \"This may conflict with of the Payment of Gratuity Act, 1972, which was repealed and replaced by the Code on Social Security Act, 2020.\" (cites L5)",
+        "Possibly unsupported: \"Minimum continuous service required is 5 years\" (cites L3)"
+      ],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.537,
+          "info": "law_question {'law_question': 0.5368, 'out_of_scope': 0.4632}"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 1.071,
+          "info": "Gratuity (0.87)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.089,
+          "info": "Payment of Gratuity Act, 1972 (0.443), Code on Wages, 2019 (0.281) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 5.336,
+          "info": "Code on Social Security Act s54 (0.185), Code on Social Security Act s56 (0.182), Code on Social Security Act s53 (topic link), Payment of Gratuity Act s15 (0.218), Payment of Gratuity Act s7 (0.233)"
+        },
+        {
+          "node": "gate",
+          "secs": 1.192,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 10.977,
+          "info": "705 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 8.297,
+          "info": "2 weak claim(s)"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q13",
+      "question": "What is the maternity leave duration?",
+      "document": null,
+      "expected_route": "law_question",
+      "expected_act": "Code on Social Security Act, 2020",
+      "expected_section": "verify",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": true,
+      "rag_hit": true,
+      "rag_precision": 0.875,
+      "rag_n_law": 8,
+      "rag_secs": 31.48,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 9249,
+      "rag_decision_calls": 0,
+      "rag_answer": "The maternity leave duration is 26 weeks, as defined by the Code on Social Security Act, 2020, Section 60 [L1].\n\n- **Explanation of the 26-week period:**\n  - According to Section 60(1) of the Code on Social Security Act, 2020, the maternity benefit is payable for the period immediately preceding the day of delivery and any period immediately following that day, with a maximum of 26 weeks. This is because the section states that the \"period of her actual absence\" is the period immediately preceding the day of her delivery and any period immediately following that day, subject to a maximum of 26 weeks.\n\n- **Explanation of 'actual absence':**\n  - The term \"actual absence\" refers to the period during which the woman is not working due to her pregnancy and subsequent delivery. This period can include both the period before and after the delivery, but the total period cannot exceed 26 weeks.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Code on Social Security Act, 2020, Section 60",
+        "Code on Social Security Act, 2020, Section 61",
+        "Code on Social Security Act, 2020, Section 62",
+        "Code on Social Security Act, 2020, Section 63",
+        "Code on Social Security Act, 2020, Section 54",
+        "Code on Social Security Act, 2020, Section 65",
+        "Code on Wages, 2019, Section 28",
+        "Code on Social Security Act, 2020, Section 66"
+      ],
+      "rag_issues": [
+        "The draft states that the maternity leave duration is 26 weeks, but the sources do not explicitly state this as a universal maximum duration. Section 60(1) of the Code on Social Security Act, 2020, only states that the period of actual absence is the period immediately preceding the day of delivery and any period immediately following that day, subject to a maximum of 26 weeks. The sources do not provide a universal statement that the leave duration is always 26 weeks."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 2.866,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.087,
+          "info": "right to payment of maternity benefit under Indian laws | maternity leave duration as per Indian statutes | What is the maternity leave duration?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.087,
+          "info": "Code on Social Security Act s60, Code on Social Security Act s61, Code on Social Security Act s62, Code on Social Security Act s63, Code on Social Security Act s54, Code on Social Security Act s65, Code on Wages s28, Code on Social Security Act s66"
+        },
+        {
+          "node": "answer",
+          "secs": 7.678,
+          "info": "656 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 5.138,
+          "info": "issues: The claim that the maternity leave duration is 26 weeks is not directly supported by the sources. The sources indicate a maximum period of 26 weeks, but do not explicitly state this as the leave duration.; The explanation of 'actual absence' is not directly related to the 26-week period mentioned in"
+        },
+        {
+          "node": "answer",
+          "secs": 9.283,
+          "info": "946 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 5.324,
+          "info": "issues: The draft states that the maternity leave duration is 26 weeks, but the sources do not explicitly state this as a universal maximum duration. Section 60(1) of the Code on Social Security Act, 2020, only states that the period of actual absence is the period immediately preceding the day of delivery "
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "law_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 0.25,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 17.2,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 1285,
+      "jev_okf_decision_calls": 8,
+      "jev_okf_answer": "According to the Code on Social Security Act, 2020, the maternity leave duration is 26 weeks. However, not more than 8 weeks can precede the expected date of delivery. For a woman with two or more surviving children, the maximum period entitled to maternity benefit is 12 weeks.\n\n- Maternity leave duration: 26 weeks, with a maximum of 8 weeks before the expected delivery date. [L1]\n- Maximum period for a woman with two or more surviving children: 12 weeks. [L1]\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "Code on Social Security Act, 2020, Section 60 - Right to payment of maternity benefit",
+        "Maternity Benefit Act, 1961, Section 7 - Payment of maternity benefit in case of death of a woman",
+        "Maternity Benefit Act, 1961, Section 10 - Leave for illness arising out of pregnancy, delivery, premature birth of child, [miscarriage, medical termination of pre",
+        "Maternity Benefit Act, 1961, Section 9 - Leave for miscarriage, etc. In case of miscarriage or medical termination of pregnancy, a woman shall, on production of"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.506,
+          "info": "law_question {'law_question': 0.519, 'out_of_scope': 0.481}"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 1.053,
+          "info": "Maternity benefit and leave (0.843)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.039,
+          "info": "Maternity Benefit Act, 1961 (0.832) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 5.455,
+          "info": "Code on Social Security Act s60 (0.26), Maternity Benefit Act s7 (0.203), Maternity Benefit Act s10 (0.183), Maternity Benefit Act s9 (0.247)"
+        },
+        {
+          "node": "gate",
+          "secs": 1.292,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 7.848,
+          "info": "512 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 0.0,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q14",
+      "question": "How long does the company have to pay my dues after I leave?",
+      "document": null,
+      "expected_route": "law_question",
+      "expected_act": "Code on Wages, 2019",
+      "expected_section": "17",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": true,
+      "rag_hit": true,
+      "rag_precision": 0.5,
+      "rag_n_law": 8,
+      "rag_secs": 12.99,
+      "rag_llm_calls": 4,
+      "rag_llm_tokens": 6205,
+      "rag_decision_calls": 0,
+      "rag_answer": "Based on the Code on Wages, 2019, Section 17 [L1], the company has specific time limits for paying wages after an employee leaves:\n\n- If you were dismissed, retrenched, or resigned, the company must pay your dues within two working days of the event [L1 (2)].\n- For daily, weekly, fortnightly, or monthly wages, the company has specific deadlines depending on the payment frequency [L1 (1)].\n\nThis may conflict with any other applicable laws that provide shorter or longer payment periods [L1 (4)].\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Code on Wages, 2019, Section 17",
+        "Code on Wages, 2019, Section 13",
+        "Code on Wages, 2019, Section 2",
+        "Code on Wages, 2019, Section 39",
+        "Code on Social Security Act, 2020, Section 53",
+        "Code on Social Security Act, 2020, Section 59",
+        "Code on Social Security Act, 2020, Section 2",
+        "Code on Social Security Act, 2020, Section 65"
+      ],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.456,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.621,
+          "info": "time limit for payment of wages on removal, dismissal, retrenchment or resignation, within two working days | termination of employment | agreement in restraint of trade | How long does the company have to pay my dues after I leave?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.107,
+          "info": "Code on Wages s17, Code on Wages s13, Code on Wages s2, Code on Wages s39, Code on Social Security Act s53, Code on Social Security Act s59, Code on Social Security Act s2, Code on Social Security Act s65"
+        },
+        {
+          "node": "answer",
+          "secs": 7.95,
+          "info": "546 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 2.848,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "law_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 0.6666666666666666,
+      "jev_okf_n_law": 3,
+      "jev_okf_secs": 16.0,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 973,
+      "jev_okf_decision_calls": 8,
+      "jev_okf_answer": "According to the Code on Wages, 2019, Section 17(2), the employer must pay the wages to an employee who has been removed, dismissed, retrenched, or resigned from service, or who has become unemployed due to the closure of the establishment, within two working days of the occurrence of such an event.\n\n- **[L1] Section 17(2)**\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "Code on Wages, 2019, Section 17 - Time limit for payment of wages",
+        "Code on Wages, 2019, Section 43 - Responsibility for payment of various dues",
+        "Minimum Wages Act, 1948, Section 1 - Short title and extents"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.518,
+          "info": "law_question {'law_question': 0.6359, 'out_of_scope': 0.3641}"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 1.092,
+          "info": "Final settlement of dues after resignation or termination (0.278), Timely payment of salary and wage periods (0.175)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.105,
+          "info": "Code on Wages, 2019 (0.461), Minimum Wages Act, 1948 (0.233) -> 12 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 5.622,
+          "info": "Code on Wages s17 (0.57), Code on Wages s43 (0.271), Minimum Wages Act s1 (0.21)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.927,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 6.732,
+          "info": "374 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 0.001,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q15",
+      "question": "Can I be forced to work overtime without extra pay?",
+      "document": null,
+      "expected_route": "law_question",
+      "expected_act": "Code on Wages, 2019",
+      "expected_section": "verify",
+      "should_refuse": false,
+      "rag_route": "law_question",
+      "rag_route_ok": true,
+      "rag_hit": true,
+      "rag_precision": 0.25,
+      "rag_n_law": 8,
+      "rag_secs": 32.52,
+      "rag_llm_calls": 6,
+      "rag_llm_tokens": 9261,
+      "rag_decision_calls": 0,
+      "rag_answer": "Based on the provided sources, there is no explicit statement that overtime cannot be required without extra pay. However, the Code on Wages, 2019, Section 13 [L2] outlines the fixing of hours of work and rest days, which implies that the employer must adhere to these regulations. If the employer requires overtime, it must be compensated according to the provisions of the Code.\n\n### Bullet Points:\n- [L2] The Code on Wages, 2019, Section 13 (1) allows the appropriate government to fix the number of hours of work and provide for days of rest. This implies that the employer must adhere to these fixed hours and rest days.\n- [L2] Sub-section (2) provides exceptions for certain classes of employees, such as those engaged in emergency work or intermittent employment, but does not explicitly state that overtime cannot be required without extra pay.\n- [L2] Sub-section (3) further clarifies the conditions under which employment is considered essentially intermittent, but does not address the issue of overtime pay.\n\nThis is general information, not legal advice.",
+      "rag_sources": [
+        "Code on Social Security Act, 2020, Section 84",
+        "Code on Wages, 2019, Section 13",
+        "Code on Social Security Act, 2020, Section 80",
+        "Code on Wages, 2019, Section 60",
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 29"
+      ],
+      "rag_issues": [
+        "The draft claim that there is no explicit statement that overtime cannot be required without extra pay is not fully supported by the sources. While the Code on Wages, 2019, Section 13 (1) and (2) outlines the fixing of hours of work and rest days, it does not explicitly state that overtime cannot be required without extra pay. The exceptions provided in sub-section (2) do not address the issue of overtime pay directly."
+      ],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.412,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.441,
+          "info": "right to payment of overtime | agreement in restraint of trade | termination of employment | deductions which may be made from wages | Can I be forced to work overtime without extra pay?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.117,
+          "info": "Code on Social Security Act s84, Code on Wages s13, Code on Social Security Act s80, Code on Wages s60, Indian Contract Act s27, Indian Contract Act s26, Indian Contract Act s28, Indian Contract Act s29"
+        },
+        {
+          "node": "answer",
+          "secs": 10.983,
+          "info": "1003 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 4.537,
+          "info": "issues: The draft makes a general claim that you cannot be forced to work overtime without extra pay, which is not directly supported by the provided sources. The sources discuss the fixing of working hours and rest days, but do not explicitly state that overtime cannot be required without pay."
+        },
+        {
+          "node": "answer",
+          "secs": 9.944,
+          "info": "1067 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 5.076,
+          "info": "issues: The draft claim that there is no explicit statement that overtime cannot be required without extra pay is not fully supported by the sources. While the Code on Wages, 2019, Section 13 (1) and (2) outlines the fixing of hours of work and rest days, it does not explicitly state that overtime cannot be"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": true,
+      "rag_citation_valid": 1.0,
+      "jev_okf_route": "law_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": true,
+      "jev_okf_precision": 0.25,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 23.29,
+      "jev_okf_llm_calls": 1,
+      "jev_okf_llm_tokens": 1430,
+      "jev_okf_decision_calls": 11,
+      "jev_okf_answer": "Based on the laws provided, an employer cannot force an employee to work overtime without extra pay. The Code on Wages, 2019, specifically mandates that for any overtime work, the employer must pay the employee at a rate not less than twice the normal rate of wages [L2].\n\nThis is subject to the condition that the minimum rate of wages has been fixed by the hour, day, or a longer wage period as prescribed. If the agreement to work overtime is made without the employee's free consent, it may be considered void under the Indian Contract Act, 1872, as it would not be made by free consent if the employee was coerced into working overtime without additional compensation [L3].\n\nAdditionally, the agreement must be for a lawful consideration and object, which in this case would be the employee's work and the employer's promise to pay overtime wages [L1].\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "Indian Contract Act, 1872, Section 23 - What consideration and objects are lawful, and what not",
+        "Code on Wages, 2019, Section 14 - Wages for overtime work",
+        "Indian Contract Act, 1872, Section 14 - \"Free consent\" defined",
+        "Indian Contract Act, 1872, Section 10 - What agreements are contracts"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.511,
+          "info": "law_question {'law_question': 0.695, 'out_of_scope': 0.305}"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 1.077,
+          "info": "Working hours and overtime pay (0.377), Validity of employment agreements (0.195)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.075,
+          "info": "Code on Wages, 2019 (0.467) -> 10 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 5.255,
+          "info": "Indian Contract Act s23 (0.215), Code on Wages s14 (0.181), Indian Contract Act s14 (0.229), Indian Contract Act s10 (0.179)"
+        },
+        {
+          "node": "gate",
+          "secs": 1.009,
+          "info": "pass"
+        },
+        {
+          "node": "answer",
+          "secs": 10.807,
+          "info": "905 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 3.548,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": false,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": true,
+      "jev_okf_citation_valid": 1.0
+    },
+    {
+      "id": "q16",
+      "question": "What is the best biryani in Chennai?",
+      "document": null,
+      "expected_route": "out_of_scope",
+      "expected_act": "",
+      "expected_section": "",
+      "should_refuse": true,
+      "rag_route": "out_of_scope",
+      "rag_route_ok": true,
+      "rag_hit": null,
+      "rag_precision": null,
+      "rag_n_law": 0,
+      "rag_secs": 0.65,
+      "rag_llm_calls": 1,
+      "rag_llm_tokens": 111,
+      "rag_decision_calls": 0,
+      "rag_answer": "I can only help with questions about Indian employment law and the documents you upload (contracts, offer letters, HR policies).\n\nThis is general information, not legal advice.",
+      "rag_sources": [],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.64,
+          "info": "out_of_scope"
+        },
+        {
+          "node": "refuse",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": true,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": null,
+      "rag_citation_valid": null,
+      "jev_okf_route": "out_of_scope",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": null,
+      "jev_okf_precision": null,
+      "jev_okf_n_law": 0,
+      "jev_okf_secs": 0.52,
+      "jev_okf_llm_calls": 0,
+      "jev_okf_llm_tokens": 0,
+      "jev_okf_decision_calls": 1,
+      "jev_okf_answer": "I can only help with questions about Indian employment law and the documents you upload (contracts, offer letters, HR policies).\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.519,
+          "info": "out_of_scope {'law_question': 0.2043, 'out_of_scope': 0.7957}"
+        },
+        {
+          "node": "refuse",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": true,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": null,
+      "jev_okf_citation_valid": null
+    },
+    {
+      "id": "q17",
+      "question": "Should I sue my employer?",
+      "document": null,
+      "expected_route": "law_question",
+      "expected_act": "",
+      "expected_section": "",
+      "should_refuse": true,
+      "rag_route": "law_question",
+      "rag_route_ok": true,
+      "rag_hit": null,
+      "rag_precision": null,
+      "rag_n_law": 8,
+      "rag_secs": 25.87,
+      "rag_llm_calls": 4,
+      "rag_llm_tokens": 5287,
+      "rag_decision_calls": 0,
+      "rag_answer": "This is general information, not legal advice.\n\nBased on the provided sections of the Indian Contract Act, 1872, and the Sexual Harassment of Women at Workplace Act, 2013, here are the key points:\n\n- **Indian Contract Act, 1872, Section 15** defines \"coercion\" as the act of committing or threatening to commit an act forbidden by the Indian Penal Code or unlawfully detaining property to cause someone to enter into an agreement. If you believe your employer used coercion, this section could be relevant.\n\n- **Indian Contract Act, 1872, Section 44** states that a release of one joint promisor does not discharge the other joint promisors. This is relevant if you are part of a joint agreement with other employees.\n\n- **Indian Contract Act, 1872, Section 26** states that agreements in restraint of marriage are void. This is not directly relevant to your question unless you are concerned about a marriage-related issue.\n\n- **Indian Contract Act, 1872, Section 27** states that agreements in restraint of trade are void, with some exceptions. This is not directly relevant unless you are concerned about trade restrictions.\n\n- **Indian Contract Act, 1872, Section 28** states that agreements in restraint of legal proceedings are void, with some exceptions. This is not directly relevant unless you are concerned about legal proceedings.\n\n- **Indian Contract Act, 1872, Section 29** states that agreements that are uncertain are void. This is not directly relevant unless you are concerned about the clarity of your contract terms.\n\n- **Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 9** outlines the process for filing a complaint of sexual harassment. You can make a complaint in writing to the Internal Committee or the Local Committee within three months of the incident, or within three months of the last incident if it is a series of incidents. If you are unable to make a complaint due to physical or mental incapacity or death, your legal heir or another person can make the complaint.\n\nTo decide whether to sue your employer, consider the specific circumstances of your case, including whether there was coercion, if the terms of your contract are clear, and if you have experienced sexual harassment. Consulting a labour lawyer would be advisable to get tailored advice based on your specific situation.",
+      "rag_sources": [
+        "Indian Contract Act, 1872, Section 1",
+        "Indian Contract Act, 1872, Section 15",
+        "Indian Contract Act, 1872, Section 44",
+        "Indian Contract Act, 1872, Section 26",
+        "Indian Contract Act, 1872, Section 27",
+        "Indian Contract Act, 1872, Section 28",
+        "Indian Contract Act, 1872, Section 29",
+        "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013, Section 9"
+      ],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 0.402,
+          "info": "law_question"
+        },
+        {
+          "node": "rewrite",
+          "secs": 1.504,
+          "info": "termination of employment under Indian Contract Act | agreement in restraint of trade | sexual harassment internal committee complaint | right to payment of maternity benefit | Should I sue my employer?"
+        },
+        {
+          "node": "retrieve_law",
+          "secs": 0.119,
+          "info": "Indian Contract Act s1, Indian Contract Act s15, Indian Contract Act s44, Indian Contract Act s26, Indian Contract Act s27, Indian Contract Act s28, Indian Contract Act s29, Sexual Harassment of Women at Workplace (Prevention s9"
+        },
+        {
+          "node": "answer",
+          "secs": 21.968,
+          "info": "2370 chars"
+        },
+        {
+          "node": "verify",
+          "secs": 1.871,
+          "info": "OK"
+        },
+        {
+          "node": "finalize",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": false,
+      "rag_refusal_ok": false,
+      "rag_cited_expected": null,
+      "rag_citation_valid": null,
+      "jev_okf_route": "law_question",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": null,
+      "jev_okf_precision": null,
+      "jev_okf_n_law": 4,
+      "jev_okf_secs": 8.27,
+      "jev_okf_llm_calls": 0,
+      "jev_okf_llm_tokens": 0,
+      "jev_okf_decision_calls": 8,
+      "jev_okf_answer": "I could not find a provision in my legal knowledge base that answers this question.\n\n- Topics checked: Validity of employment agreements\n- The relevant law may not be in this knowledge base (for example the Industrial Relations Code, state Shops and Establishments Acts, or company-specific rules).\n\nPlease consult a labour lawyer for this question.\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [
+        "Indian Contract Act, 1872, Section 23 - What consideration and objects are lawful, and what not",
+        "Indian Contract Act, 1872, Section 14 - \"Free consent\" defined",
+        "Indian Contract Act, 1872, Section 24 - Agreements void, if considerations and objects unlawful in part",
+        "Indian Contract Act, 1872, Section 10 - What agreements are contracts"
+      ],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.491,
+          "info": "law_question {'law_question': 0.7316, 'out_of_scope': 0.2684}"
+        },
+        {
+          "node": "pick_topics",
+          "secs": 1.059,
+          "info": "Validity of employment agreements (0.224)"
+        },
+        {
+          "node": "pick_acts",
+          "secs": 1.045,
+          "info": "Code on Wages, 2019 (0.452) -> 10 candidate sections"
+        },
+        {
+          "node": "pick_sections",
+          "secs": 4.673,
+          "info": "Indian Contract Act s23 (0.218), Indian Contract Act s14 (0.162), Indian Contract Act s24 (0.175), Indian Contract Act s10 (0.2)"
+        },
+        {
+          "node": "gate",
+          "secs": 0.994,
+          "info": "insufficient sources - answer without LLM"
+        },
+        {
+          "node": "gated_answer",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": true,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": null,
+      "jev_okf_citation_valid": null
+    },
+    {
+      "id": "q18",
+      "question": "Write me a Python script to sort a list",
+      "document": null,
+      "expected_route": "out_of_scope",
+      "expected_act": "",
+      "expected_section": "",
+      "should_refuse": true,
+      "rag_route": "out_of_scope",
+      "rag_route_ok": true,
+      "rag_hit": null,
+      "rag_precision": null,
+      "rag_n_law": 0,
+      "rag_secs": 2.86,
+      "rag_llm_calls": 1,
+      "rag_llm_tokens": 110,
+      "rag_decision_calls": 0,
+      "rag_answer": "I can only help with questions about Indian employment law and the documents you upload (contracts, offer letters, HR policies).\n\nThis is general information, not legal advice.",
+      "rag_sources": [],
+      "rag_issues": [],
+      "rag_steps": [
+        {
+          "node": "route",
+          "secs": 2.861,
+          "info": "out_of_scope"
+        },
+        {
+          "node": "refuse",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "rag_refused": true,
+      "rag_refusal_ok": true,
+      "rag_cited_expected": null,
+      "rag_citation_valid": null,
+      "jev_okf_route": "out_of_scope",
+      "jev_okf_route_ok": true,
+      "jev_okf_hit": null,
+      "jev_okf_precision": null,
+      "jev_okf_n_law": 0,
+      "jev_okf_secs": 0.51,
+      "jev_okf_llm_calls": 0,
+      "jev_okf_llm_tokens": 0,
+      "jev_okf_decision_calls": 1,
+      "jev_okf_answer": "I can only help with questions about Indian employment law and the documents you upload (contracts, offer letters, HR policies).\n\nThis is general information, not legal advice.",
+      "jev_okf_sources": [],
+      "jev_okf_issues": [],
+      "jev_okf_steps": [
+        {
+          "node": "route",
+          "secs": 0.507,
+          "info": "out_of_scope {'law_question': 0.276, 'out_of_scope': 0.724}"
+        },
+        {
+          "node": "refuse",
+          "secs": 0.0,
+          "info": ""
+        }
+      ],
+      "jev_okf_refused": true,
+      "jev_okf_refusal_ok": true,
+      "jev_okf_cited_expected": null,
+      "jev_okf_citation_valid": null
+    }
+  ]
+}

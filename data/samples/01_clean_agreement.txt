@@ -1,0 +1,23 @@
+ SAMPLE - FICTIONAL DOCUMENT FOR SOFTWARE TESTING ONLY
+
+EMPLOYMENT AGREEMENT
+
+Between Northwind Software Pvt. Ltd. (Company) and Priya Nair (Employee), Software Engineer, Bengaluru.
+
+1. Probation
+Probation is 3 months. Either party may end employment with 15 days' written notice during probation.
+
+2. Notice Period
+After confirmation, either party shall give 60 days' written notice or salary in lieu of notice.
+
+3. Confidentiality
+The Employee shall keep Company confidential information secret during employment and for 2 years afterwards.
+
+4. Final Settlement
+All dues will be paid within two working days of the last working day, as required by applicable law.
+
+5. Benefits
+Provident fund, gratuity and maternity benefits will be provided as per applicable law.
+
+6. Working Hours
+Standard hours are 8 hours a day, 5 days a week. Overtime is paid as per applicable law.

@@ -1,0 +1,55 @@
+# Change log
+
+## 2026-10-25
+
+- Compiled uploaded document 'shrm_clause_bank_india.docx' into documents/shrm-clause-bank-india (9 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document 'posh_handbook_mwcd.pdf' into documents/posh-handbook-mwcd (276 clauses).
+- Compiled uploaded document 'shrm_clause_bank_india.docx' into documents/shrm-clause-bank-india (9 clauses).
+- Compiled uploaded document 'startupindia_non_compete.docx' into documents/startupindia-non-compete (8 clauses).
+- Compiled uploaded document '01_clean_agreement.txt' into documents/01-clean-agreement (6 clauses).
+- Compiled uploaded document '07_termination_letter.txt' into documents/07-termination-letter (2 clauses).
+- Compiled uploaded document '06_posh_policy.pdf' into documents/06-posh-policy (3 clauses).
+- Compiled uploaded document '05_leave_policy.txt' into documents/05-leave-policy (5 clauses).
+- Compiled uploaded document '04_fixed_term_gratuity.docx' into documents/04-fixed-term-gratuity (4 clauses).
+- Compiled uploaded document '03_slow_settlement.pdf' into documents/03-slow-settlement (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '01_clean_agreement.txt' into documents/01-clean-agreement (6 clauses).
+- Compiled uploaded document '07_termination_letter.txt' into documents/07-termination-letter (2 clauses).
+- Compiled uploaded document '06_posh_policy.pdf' into documents/06-posh-policy (3 clauses).
+- Compiled uploaded document '05_leave_policy.txt' into documents/05-leave-policy (5 clauses).
+- Compiled uploaded document '04_fixed_term_gratuity.docx' into documents/04-fixed-term-gratuity (4 clauses).
+- Compiled uploaded document '03_slow_settlement.pdf' into documents/03-slow-settlement (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '01_clean_agreement.txt' into documents/01-clean-agreement (6 clauses).
+- Compiled uploaded document '01_clean_agreement.txt' into documents/01-clean-agreement (6 clauses).
+- Compiled uploaded document '07_termination_letter.txt' into documents/07-termination-letter (2 clauses).
+- Compiled uploaded document '07_termination_letter.txt' into documents/07-termination-letter (2 clauses).
+- Compiled uploaded document '06_posh_policy.pdf' into documents/06-posh-policy (3 clauses).
+- Compiled uploaded document '06_posh_policy.pdf' into documents/06-posh-policy (3 clauses).
+- Compiled uploaded document '05_leave_policy.txt' into documents/05-leave-policy (5 clauses).
+- Compiled uploaded document '05_leave_policy.txt' into documents/05-leave-policy (5 clauses).
+- Compiled uploaded document '04_fixed_term_gratuity.docx' into documents/04-fixed-term-gratuity (4 clauses).
+- Compiled uploaded document '04_fixed_term_gratuity.docx' into documents/04-fixed-term-gratuity (4 clauses).
+- Compiled uploaded document '03_slow_settlement.pdf' into documents/03-slow-settlement (4 clauses).
+- Compiled uploaded document '03_slow_settlement.pdf' into documents/03-slow-settlement (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '01_clean_agreement.txt' into documents/01-clean-agreement (6 clauses).
+- Compiled uploaded document '07_termination_letter.txt' into documents/07-termination-letter (2 clauses).
+- Compiled uploaded document '06_posh_policy.pdf' into documents/06-posh-policy (3 clauses).
+- Compiled uploaded document '05_leave_policy.txt' into documents/05-leave-policy (5 clauses).
+- Compiled uploaded document '04_fixed_term_gratuity.docx' into documents/04-fixed-term-gratuity (4 clauses).
+- Compiled uploaded document '03_slow_settlement.pdf' into documents/03-slow-settlement (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '04_fixed_term_gratuity.docx' into documents/04-fixed-term-gratuity (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '03_slow_settlement.pdf' into documents/03-slow-settlement (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Compiled uploaded document '02_noncompete_bond.docx' into documents/02-noncompete-bond (4 clauses).
+- Built law bundle: 492 sections from 11 Acts, 16 topics.
