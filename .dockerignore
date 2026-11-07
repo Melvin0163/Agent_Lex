@@ -1,0 +1,16 @@
+.git
+.github
+.venv
+venv
+.env
+**/__pycache__
+*.pyc
+data/uploads
+data/real
+data/reference
+knowledge/documents
+logs
+reports
+visualization
+tests
+*.bat
