@@ -28,7 +28,8 @@ from legal_agent import config, llm, service  # noqa: E402
 from legal_agent.jev import get_engine  # noqa: E402
 
 STATIC = Path(__file__).parent / "static"
-HOST, PORT = "127.0.0.1", 8600
+# APP_HOST=0.0.0.0 inside Docker so the app is reachable from outside the container
+HOST, PORT = os.getenv("APP_HOST", "127.0.0.1"), int(os.getenv("APP_PORT", "8600"))
 ALLOWED = {".pdf", ".docx", ".doc", ".txt", ".md", ".html", ".htm", ".rtf"}
 REVIEW_Q = "Review this document clause by clause and flag anything that may conflict with Indian employment law."
 DOCS = {}          # id -> prepared document (single local user)

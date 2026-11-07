@@ -18,3 +18,6 @@ data/reference/
 # results that quote the real third-party documents (kept locally, not published)
 reports/eval_real_full*
 reports/grading_sheet.csv
+
+# test cache
+.pytest_cache/

@@ -1,0 +1,50 @@
+# One command runs LexAgent with a local LLM:
+#   docker compose up --build
+# then open http://localhost:8600 . The first start downloads qwen2.5:7b (about 4.7 GB) into a volume.
+#
+# Decision model: the default is the offline stand-in (JEV_BACKEND=local). To use the Laya model
+# served by ollajev on your machine, as in the README results, run ollajev on the host and set
+#   JEV_BACKEND=server  JEV_BASE_URL=http://host.docker.internal:8000
+# in a .env file next to this one.
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama-models:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  ollama-pull:                       # one-off: download the LLM, then exit
+    image: ollama/ollama:latest
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: ollama:11434
+    entrypoint: ["ollama", "pull", "qwen2.5:7b"]
+    volumes:
+      - ollama-models:/root/.ollama
+
+  app:
+    build: .
+    ports:
+      - "8600:8600"
+    environment:
+      OLLAMA_URL: http://ollama:11434/v1
+      JEV_BACKEND: ${JEV_BACKEND:-local}
+      JEV_BASE_URL: ${JEV_BASE_URL:-http://host.docker.internal:8000}
+      LEXAGENT_ACCESS_CODE: ${LEXAGENT_ACCESS_CODE:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      ollama-pull:
+        condition: service_completed_successfully
+    volumes:
+      - uploads:/app/data/uploads
+
+volumes:
+  ollama-models:
+  uploads:

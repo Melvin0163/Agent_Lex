@@ -1,0 +1,9 @@
+# Lightweight dependencies for the unit tests (no torch or model downloads).
+# The tests cover document parsing, the statute corpus, the OKF bundle, tracing and retrieval fusion.
+pytest>=8.0
+numpy>=1.26
+rank-bm25>=0.2.2
+PyYAML>=6.0
+python-dotenv>=1.0
+pypdf>=4.0
+python-docx>=1.1

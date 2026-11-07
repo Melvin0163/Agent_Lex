@@ -1,5 +1,7 @@
 # Intelligent Analysis and Decision Support for Legal Documents Using Agentic AI
 
+[![tests](https://github.com/Melvin0163/Agent_Lex/actions/workflows/tests.yml/badge.svg)](https://github.com/Melvin0163/Agent_Lex/actions/workflows/tests.yml)
+
 *An AI-agent-based framework for automated legal document analysis and decision support, applied to Indian employment law.*
 
 A user gives the system an employment contract, offer letter or HR policy (PDF, DOCX, TXT and similar) and asks a
@@ -189,6 +191,34 @@ JEV_MODEL=convaiinnovations/laya-typed-decisions
 
 `.env` is git-ignored. `.env.example` lists every option.
 
+### Running with Docker
+
+`docker compose up --build` starts three containers: Ollama, a one-off job that downloads `qwen2.5:7b`
+(about 4.7 GB, kept in a volume), and the web app at http://localhost:8600. The image uses CPU-only
+PyTorch and includes the embedding model and the local decision-model cross-encoders, so the app answers
+its first question without downloading anything.
+
+In Docker the decision model defaults to the offline stand-in (`JEV_BACKEND=local`), which copies Jev's
+interface but not its accuracy. To reproduce the reported results with Laya, run ollajev on the host as in
+Terminal 1 above, and put these lines in a `.env` file next to `docker-compose.yml`:
+
+```
+JEV_BACKEND=server
+JEV_BASE_URL=http://host.docker.internal:8000
+```
+
+### Tests
+
+```bat
+pip install -r requirements-test.txt
+python -m pytest -q
+```
+
+The 26 unit tests need no models or network: document loading and clause splitting (including the sample
+documents), the statute corpus (842 chunks, 11 Acts, 492 sections), OKF conformance and links, per-question
+tracing, and reciprocal rank fusion in the hybrid retriever (with a small fake index). GitHub Actions runs
+them on every push and builds the Docker image (`.github/workflows/tests.yml`).
+
 ---
 
 ## 4. Evaluation
@@ -366,6 +396,8 @@ legal_agent/
   projector.py           embeddings and projections for the figures
 webapp/                  server.py (local web server) and static/ (the page)
 run_app.bat              starts the web app
+Dockerfile               the web app image; docker-compose.yml adds Ollama and the LLM download
+tests/                   unit tests (pytest), run by .github/workflows/tests.yml
 scripts/                 ingest, build_okf, ask, check_jev, evaluate, timing_clean, build_projector,
                          export_projector_tsv, make_figures, grading_sheet, generate_samples
 knowledge/               the OKF bundle (generated)
